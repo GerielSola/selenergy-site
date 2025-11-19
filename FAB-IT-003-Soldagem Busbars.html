@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT-003 - Soldagem a Laser de Barramentos (Busbars)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #c0392b;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #e74c3c;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #e74c3c;
+            margin-top: 20px;
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .header-table .label {
+            font-weight: bold;
+            background-color: #ecf0f1;
+            width: 30%;
+            color: #2c3e50;
+        }
+        .parameters-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .parameters-table th, .parameters-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .parameters-table th {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        .parameters-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .changes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .changes-table th, .changes-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .changes-table th {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        .critical-warning {
+            color: #c0392b;
+            font-weight: bold;
+            background-color: #f9ebea;
+            padding: 15px;
+            border-left: 4px solid #c0392b;
+            margin: 15px 0;
+            border: 1px solid #e74c3c;
+        }
+        .warning {
+            color: #e74c3c;
+            font-weight: bold;
+            background-color: #fdf2f2;
+            padding: 12px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+        }
+        .step-box {
+            background-color: #fdf0f0;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .step-box h4 {
+            margin-top: 0;
+            color: #c0392b;
+        }
+        .note-box {
+            background-color: #fff8e1;
+            padding: 10px 15px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        .quality-criteria {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>INSTRUÇÃO DE TRABALHO</h1>
+        
+        <h2>Título: Soldagem a Laser de Barramentos (Busbars)</h2>
+
+        <div class="section">
+            <h2>1. OBJETIVO</h2>
+            <p>Detalhar o procedimento para a soldagem a laser dos barramentos (busbars) de cobre aos terminais de alumínio das células LiFePO4, garantindo uma conexão elétrica e mecânica de alta qualidade, baixa resistência e excelente durabilidade.</p>
+            <div class="note-box">
+                <strong>Nota:</strong> Este procedimento substitui o uso de parafusos em modelos de bateria de alta performance.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. EQUIPAMENTOS E MATERIAIS</h2>
+            <ul>
+                <li><strong>Equipamento:</strong> Máquina de solda a laser de fibra (Ex: IPG Photonics YLR-1500-AC)</li>
+                <li><strong>Gás de Proteção:</strong> Argônio (Ar) com pureza de 99,99%</li>
+                <li><strong>Gabarito de Fixação:</strong> Gabarito específico para posicionar e prender as células e os barramentos durante a solda</li>
+                <li><strong>Materiais:</strong> Células LiFePO4, Barramentos de Cobre Niquelado</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>3. SEGURANÇA</h2>
+            <div class="critical-warning">
+                <strong>RISCO DE QUEIMADURAS E DANOS À VISÃO POR RADIAÇÃO LASER.</strong>
+            </div>
+            <ul>
+                <li class="warning"><strong>OBRIGATÓRIO</strong> o uso de óculos de proteção específicos para o comprimento de onda do laser (1070 nm).</li>
+                <li>A área de soldagem deve ser enclausurada e possuir um sistema de exaustão de fumos metálicos.</li>
+               

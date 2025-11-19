@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP-007 - Teste de Qualidade Final e Comunicação</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 25px;
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .header-table .label {
+            font-weight: bold;
+            background-color: #ecf0f1;
+            width: 30%;
+            color: #2c3e50;
+        }
+        .changes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .changes-table th, .changes-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .changes-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        .signature-area {
+            margin-top: 50px;
+            padding-top: 30px;
+        }
+        .signature-line {
+            margin-top: 40px;
+        }
+        .signature-line p {
+            margin: 8px 0;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        ul, ol {
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .warning {
+            color: #e74c3c;
+            font-weight: bold;
+            background-color: #fdf2f2;
+            padding: 10px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+        }
+        .critical-warning {
+            color: #c0392b;
+            font-weight: bold;
+            background-color: #f9ebea;
+            padding: 12px;
+            border-left: 4px solid #c0392b;
+            margin: 15px 0;
+            border: 1px solid #e74c3c;
+        }
+        .criteria-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .criteria-box h4 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+        .step-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .step-box h4 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .resources-list {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .test-parameters {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #f39c12;
+        }
+        .hipot-highlight {
+            background-color: #ffebee;
+            padding: 10px 15px;
+            border-left: 4px solid #e53935;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .protocol-box {
+            background-color: #e8f5e8;
+            padding: 10px 15px;
+            border-left: 4px solid #43a047;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PROCEDIMENTO OPERACIONAL PADRÃO</h1>
+        
+        <h2>Título: Teste de Qualidade Final e Comunicação (CAN/RS485)</h2>
+        
+        <table class="header-table">
+            <tr>
+                <td class="label">Código:</td>
+                <td>POP-007</td>
+                <td class="label">Revisão:</td>
+                <td>00</td>
+            </tr>
+            <tr>
+                <td class="label">Data de Emissão:</td>
+                <td>13/10/2025</td>
+                <td class="label">Próxima Revisão:</td>
+                <td>13/10/2026</td>
+            </tr>
+            <tr>
+                <td class="label">Elaborado por:</td>
+                <td>Geriel</td>
+                <td class="label">Aprovado por:</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="section">
+            <h2>1. OBJETIVO</h2>
+            <p>Realizar uma verificação final completa no produto acabado, testando a funcionalidade de todos os seus componentes externos, a comunicação de dados e a segurança elétrica (HiPot), garantindo que a bateria está 100% pronta para o cliente.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. ESCOPO</h2>
+            <p>Este procedimento aplica-se a todas as baterias montadas e seladas conforme o POP-006. É executado pelo Técnico de Qualidade.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. RECURSOS NECESSÁRIOS</h2>
+            
+            <div class="resources-list">
+                <ul>
+                    <li>Equipamento de teste HiPot (High Potential)</li>
+                    <li>Analisador de protocolo CAN e RS485</li>
+                    <li>Computador com software de monitoramento</li>
+                    <li>Carga eletrônica de baixa potência</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. PROCEDIMENTO</h2>
+            
+            <div class="step-box">
+                <h4>1. Teste de Comunicação:</h4>
+                <ul>
+                    <li>Conectar um analisador de protocolo à porta CAN da bateria.</li>
+                    <li>Ligar a bateria e verificar se os pacotes de dados padrão (Broadcast) estão sendo enviados corretamente.</li>
+                    <li>Repetir o procedimento para a porta RS485.</li>
+                </ul>
+                <div class="protocol-box">
+                    <strong>Protocolos testados:</strong> CAN e RS485
+                </div>
+            </div>
+            
+            <div class="step-box">
+                <h4>2. Teste de Funcionalidade do Display:</h4>
+                <p>Verificar se o display LCD está exibindo corretamente as informações (Tensão, Corrente, SoC, Temperatura).</p>
+            </div>
+            
+            <div class="step-box">
+                <h4>3. Teste de Carga/Descarga Mínima:</h4>
+                <ul>
+                    <li>Conectar uma carga eletrônica e descarregar a bateria por 1 minuto com uma corrente baixa (ex: 10A).</li>
+                    <li>Conectar uma fonte e carregar a bateria por 1 minuto com uma corrente baixa (ex: 10A).</li>
+                    <li>O objetivo é verificar se o BMS está habilitando corretamente as saídas de carga e descarga.</li>
+                </ul>
+                <div class="test-parameters">
+                    <strong>Parâmetros do teste:</strong> 10A por 1 minuto (carga e descarga)
+                </div>
+            </div>
+            
+            <div class="step-box">
+                <h4>4. Teste de Isolação (HiPot Test):</h4>
+                <div class="critical-warning">
+                    <strong>ATENÇÃO:</strong> Este teste é crítico e deve ser feito com extremo cuidado.
+                </div>
+                <ul>
+                    <li>Conectar o terminal do equipamento HiPot entre os terminais de potência (Positivo e Negativo) curto-circuitados e a carcaça metálica do gabinete.</li>
+                    <li>Aplicar uma tensão de <strong>500V AC</strong> por <strong>1 segundo</strong>.</li>
+                    <li>O equipamento medirá a corrente de fuga.</li>
+                </ul>
+                <div class="hipot-highlight">
+                    <strong>Parâmetros HiPot:</strong> 500V AC por 1 segundo
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. CRITÉRIOS DE ACEITAÇÃO</h2>
+            
+            <div class="criteria-box">
+                <p>O produto final será <strong>APROVADO</strong> se:</p>
+                <ul>
+                    <li>A comunicação CAN e RS485 estiverem operacionais.</li>
+                    <li>O display exibir as informações corretamente.</li>
+                    <li>O BMS permitir a carga e descarga mínima.</li>
+                    <li>No teste HiPot, a corrente de fuga for inferior a <strong>5mA</strong>. Uma corrente superior indica falha na isolação elétrica entre o pack e o gabinete.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>6. REGISTROS</h2>
+            <ul>
+                <li>Laudo de Teste Final (parte do FOR-QLD-003), com o resultado do teste HiPot e de comunicação.</li>
+                <li>Etiqueta de "Produto Aprovado" colada no gabinete.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. SEGURANÇA</h2>
+            <ul>
+                <li class="warning">O teste HiPot deve ser realizado em uma área isolada e sinalizada, e o operador deve estar devidamente treinado.</li>
+                <li class="critical-warning">Nunca toque nos terminais ou na carcaça da bateria durante o teste HiPot.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>8. CONTROLE DE ALTERAÇÕES</h2>
+            <table class="changes-table">
+                <thead>
+                    <tr>
+                        <th>Revisão</th>
+                        <th>Data</th>
+                        <th>Descrição da Alteração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00</td>
+                        <td>13/10/2025</td>
+                        <td>Emissão inicial do documento.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="signature-area">
+            <h2>Assinaturas:</h2>
+            
+            <div class="signature-line">
+                <p><strong>Elaborado por:</strong> (Nome/Cargo)</p>
+                <p>_________________________________________</p>
+            </div>
+            
+            <div class="signature-line">
+                <p><strong>Aprovado por:</strong> (Nome/Cargo)</p>
+                <p>_________________________________________</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

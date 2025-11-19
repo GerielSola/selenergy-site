@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT-002 - Calibração de Instrumentos de Medição</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #3498db;
+            margin-top: 20px;
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .header-table .label {
+            font-weight: bold;
+            background-color: #ecf0f1;
+            width: 30%;
+            color: #2c3e50;
+        }
+        .frequency-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .frequency-table th, .frequency-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .frequency-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        .frequency-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .changes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .changes-table th, .changes-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .changes-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        .step-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .step-box h4 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .form-reference {
+            background-color: #e3f2fd;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #1565c0;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .warning {
+            background-color: #fff8e1;
+            padding: 10px 15px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+        }
+        .strikethrough {
+            text-decoration: line-through;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>INSTRUÇÃO DE TRABALHO</h1>
+        
+        <h2>Título: Calibração de Instrumentos de Medição</h2>
+        
+        <table class="header-table">
+            <tr>
+                <td class="label">Código:</td>
+                <td>IT-002</td>
+                <td class="label">Revisão:</td>
+                <td>00</td>
+            </tr>
+            <tr>
+                <td class="label">Data de Emissão:</td>
+                <td>12/11/2025</td>
+                <td class="label">POP Associado:</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td class="label">Elaborado por:</td>
+                <td>Técnico de Qualidade</td>
+                <td class="label">Aprovado por:</td>
+                <td>Gerente de Operações</td>
+            </tr>
+        </table>
+
+        <div class="section">
+            <h2>1. OBJETIVO</h2>
+            <p>Estabelecer a rotina e os critérios para a calibração periódica dos instrumentos de medição utilizados no processo produtivo, garantindo a confiabilidade e a precisão das medições de qualidade, em conformidade com os requisitos da norma ISO 9001.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. ESCOPO</h2>
+            <p>Esta instrução aplica-se aos seguintes instrumentos:</p>
+            <ul>
+                <li>Multímetros digitais</li>
+                <li>Medidores de resistência interna (Impedancímetros)</li>
+                <li>Torquímetros</li>
+                <li><span class="strikethrough">Paquímetros digitais</span></li>
+                <li><span class="strikethrough">Balanças de precisão</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>3. FREQUÊNCIA DE CALIBRAÇÃO</h2>
+            
+            <table class="frequency-table">
+                <thead>
+                    <tr>
+                        <th>Instrumento</th>
+                        <th>Frequência</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Multímetro Digital</td>
+                        <td>Anual</td>
+                    </tr>
+                    <tr>
+                        <td>Medidor de Resistência Interna</td>
+                        <td>Anual</td>
+                    </tr>
+                    <tr>
+                        <td>Torquímetro</td>
+                        <td>Anual</td>
+                    </tr>
+                    <tr>
+                        <td class="strikethrough">Paquímetro Digital</td>
+                        <td class="strikethrough">Anual</td>
+                    </tr>
+                    <tr>
+                        <td class="strikethrough">Balança de Precisão</td>
+                        <td class="strikethrough">Anual</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>4. PROCEDIMENTO</h2>
+            
+            <div class="step-box">
+                <h4>4.1. Identificação e Controle</h4>
+                <ol>
+                    <li>Todos os instrumentos de medição devem possuir um número de identificação único (TAG) e uma etiqueta de calibração visível.</li>
+                    <li>A etiqueta de calibração deve informar:
+                        <ul>
+                            <li>Número de identificação (TAG)</li>
+                            <li>Data da última calibração</li>
+                            <li>Data da próxima calibração</li>
+                            <li>Status (Aprovado/Reprovado)</li>
+                        </ul>
+                    </li>
+                    <li>O Técnico de Qualidade é responsável por manter uma planilha de controle de calibração <span class="form-reference">(PLAN-QLD-001)</span> com o histórico de todos os instrumentos.</li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h4>4.2. Calibração Externa</h4>
+                <ol>
+                    <li><strong>Agendamento:</strong> 30 dias antes da data de vencimento da calibração, o Técnico de Qualidade deve solicitar ao setor de Compras a contratação de um laboratório de calibração acreditado pela Rede Brasileira de Calibração (RBC).</li>
+                    <li><strong>Envio:</strong> O instrumento deve ser embalado de forma segura e enviado ao laboratório com a Ordem de Serviço correspondente.</li>
+                    <li><strong>Recebimento e Análise do Certificado:</strong>
+                        <ul>
+                            <li>Ao retornar, o instrumento deve ser inspecionado visualmente.</li>
+                            <li>O Certificado de Calibração emitido pelo laboratório deve ser analisado pelo Técnico de Qualidade.</li>
+                            <li><strong>Critério de Aceitação:</strong> Os erros de medição encontrados e reportados no certificado devem estar dentro da tolerância máxima especificada pelo fabricante do instrumento.</li>
+                            <li>Se aprovado, atualizar a etiqueta de calibração e a planilha de controle.</li>
+                            <li>Se reprovado, o instrumento deve ser enviado para manutenção ou substituído.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h4>4.3. Verificação Interna (para Torquímetros)</h4>
+                <ul>
+                    <li><strong>Frequência:</strong> Mensal</li>
+                    <li><strong>Objetivo:</strong> Verificar se o torquímetro mantém sua precisão entre as calibrações semestrais.</li>
+                    <li><strong>Procedimento:</strong>
+                        <ol>
+                            <li>Utilizar um verificador de torque (torquímetro de bancada) calibrado.</li>
+                            <li>Ajustar o torquímetro a ser verificado para 3 valores de torque (baixo, médio e alto - ex: 4, 8 e 12 Nm).</li>
+                            <li>Acionar o torquímetro no verificador 3 vezes para cada valor.</li>
+                            <li><strong>Critério de Aceitação:</strong> A média das leituras no verificador não deve ter um desvio superior a ±4% do valor ajustado no torquímetro.</li>
+                            <li>Registrar os resultados no Formulário de Verificação Interna <span class="form-reference">(FOR-QLD-005)</span>.</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. MANUSEIO E ARMAZENAMENTO</h2>
+            <ul>
+                <li>Instrumentos de medição são sensíveis e devem ser manuseados com cuidado.</li>
+                <li>Após o uso, devem ser limpos e armazenados em seus estojos originais, em local protegido de umidade, poeira e impactos.</li>
+                <li class="warning">Torquímetros devem ser "desarmados" (ajustados para o menor valor da escala) antes de serem guardados para aliviar a mola interna.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. REGISTROS</h2>
+            <ul>
+                <li>Planilha de Controle de Calibração <span class="form-reference">(PLAN-QLD-001)</span></li>
+                <li>Certificados de Calibração emitidos por laboratórios externos</li>
+                <li>Formulário de Verificação Interna de Torquímetros <span class="form-reference">(FOR-QLD-005)</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. CONTROLE DE ALTERAÇÕES</h2>
+            <table class="changes-table">
+                <thead>
+                    <tr>
+                        <th>Revisão</th>
+                        <th>Data</th>
+                        <th>Descrição da Alteração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00</td>
+                        <td>12/11/2025</td>
+                        <td>Emissão inicial do documento.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

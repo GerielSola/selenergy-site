@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP-004 - Instalação e Configuração do BMS</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 25px;
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .header-table .label {
+            font-weight: bold;
+            background-color: #ecf0f1;
+            width: 30%;
+            color: #2c3e50;
+        }
+        .changes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .changes-table th, .changes-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .changes-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        .signature-area {
+            margin-top: 50px;
+            padding-top: 30px;
+        }
+        .signature-line {
+            margin-top: 40px;
+        }
+        .signature-line p {
+            margin: 8px 0;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        ul, ol {
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .warning {
+            color: #e74c3c;
+            font-weight: bold;
+            background-color: #fdf2f2;
+            padding: 10px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+        }
+        .criteria-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .criteria-box h4 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+        .step-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .step-box h4 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .parameter-list {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .parameter-list ul {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PROCEDIMENTO OPERACIONAL PADRÃO</h1>
+        
+        <h2>Título: Instalação e Configuração do BMS</h2>
+        
+        <table class="header-table">
+            <tr>
+                <td class="label">Código:</td>
+                <td>POP-004</td>
+                <td class="label">Revisão:</td>
+                <td>00</td>
+            </tr>
+            <tr>
+                <td class="label">Data de Emissão:</td>
+                <td>13/10/2025</td>
+                <td class="label">Próxima Revisão:</td>
+                <td>13/10/2026</td>
+            </tr>
+            <tr>
+                <td class="label">Elaborado por:</td>
+                <td>Geriel</td>
+                <td class="label">Aprovado por:</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="section">
+            <h2>1. OBJETIVO</h2>
+            <p>Padronizar a instalação, conexão e configuração do Sistema de Gerenciamento de Bateria (BMS), garantindo que ele monitore e proteja o pack de bateria de forma eficaz.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. ESCOPO</h2>
+            <p>Este procedimento aplica-se a todos os packs de bateria montados conforme o POP-003. É executado pelos Técnicos de Montagem.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. RECURSOS NECESSÁRIOS</h2>
+            
+            <h3>3.1. Ferramentas e Equipamentos:</h3>
+            <ul>
+                <li>Computador com software de configuração do BMS (Daly)</li>
+                <li>Interface de comunicação (USB-CAN ou USB-RS485)</li>
+                <li>Multímetro</li>
+                <li>Ferramentas de crimpagem de terminais</li>
+            </ul>
+            
+            <h3>3.2. Materiais:</h3>
+            <ul>
+                <li>BMS (modelo especificado para o pack)</li>
+                <li>Chicote de balanceamento</li>
+                <li>Sensores de temperatura do BMS</li>
+                <li>Terminais e conectores</li>
+            </ul>
+            
+            <h3>3.3. Equipamentos de Proteção Individual (EPIs):</h3>
+            <ul>
+                <li>Luvas de segurança (antiestáticas e isolantes)</li>
+                <li>Óculos de proteção</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. PROCEDIMENTO</h2>
+            
+            <div class="step-box">
+                <h4>1. Fixação do BMS:</h4>
+                <p>Fixar a placa do BMS em seu local designado no pack ou no gabinete, garantindo que esteja eletricamente isolada de qualquer parte metálica.</p>
+            </div>
+            
+            <div class="step-box">
+                <h4>2. Conexão do Chicote de Balanceamento:</h4>
+                <ul>
+                    <li>Conectar <strong>primeiro</strong> o fio preto (B0) do chicote no terminal negativo principal do pack.</li>
+                    <li>Conectar os fios seguintes (B1, B2, ..., Bn) em sequência, no terminal positivo de cada célula correspondente.</li>
+                    <li class="warning"><strong>A sequência correta é crucial para não danificar o BMS.</strong></li>
+                </ul>
+            </div>
+            
+            <div class="step-box">
+                <h4>3. Verificação das Tensões:</h4>
+                <p>Antes de conectar o chicote ao BMS, utilizar o multímetro para medir a tensão entre o fio B0 e cada um dos outros fios (B1, B2, etc.), verificando se as tensões aumentam progressivamente (aprox. 3.2V por célula).</p>
+            </div>
+            
+            <div class="step-box">
+                <h4>4. Conexão do Chicote ao BMS:</h4>
+                <p>Após a verificação, conectar o plugue do chicote de balanceamento na porta correspondente do BMS.</p>
+            </div>
+            
+            <div class="step-box">
+                <h4>5. Conexão dos Cabos de Potência:</h4>
+                <ul>
+                    <li>Conectar o cabo <strong>B-</strong> do BMS ao terminal negativo principal do pack.</li>
+                    <li>Conectar o cabo <strong>P-</strong> (ou C-) do BMS ao terminal que será a saída negativa da bateria.</li>
+                </ul>
+            </div>
+            
+            <div class="step-box">
+                <h4>6. Conexão dos Sensores de Temperatura:</h4>
+                <p>Posicionar os sensores de temperatura do BMS em pontos estratégicos do pack (centro e extremidades) e conectá-los ao BMS.</p>
+            </div>
+            
+            <div class="step-box">
+                <h4>7. Configuração do Software:</h4>
+                <ul>
+                    <li>Conectar o BMS ao computador via interface de comunicação.</li>
+                    <li>Abrir o software do fabricante (Daly).</li>
+                    <li>Carregar o arquivo de configuração padrão para o modelo de bateria, verificando os seguintes parâmetros:</li>
+                </ul>
+                
+                <div class="parameter-list">
+                    <ul>
+                        <li><strong>Tipo de Bateria:</strong> LiFePO4</li>
+                        <li><strong>Número de Células em Série:</strong> (ex: 8 para 24V, 16 para 48V)</li>
+                        <li><strong>Capacidade Nominal:</strong> (ex: 230Ah)</li>
+                        <li><strong>Tensão de Proteção (Corte):</strong> Sobretensão (3.75V), Subtensão (2.50V)</li>
+                        <li><strong>Corrente de Proteção (Corte):</strong> Sobrecorrente de Carga e Descarga (conforme especificação)</li>
+                        <li><strong>Proteção de Temperatura:</strong> (ex: Corte em 65°C)</li>
+                    </ul>
+                </div>
+                
+                <p>Salvar a configuração no BMS.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. CRITÉRIOS DE ACEITAÇÃO</h2>
+            
+            <div class="criteria-box">
+                <p>O BMS será considerado <strong>corretamente instalado</strong> se:</p>
+                <ul>
+                    <li>O software do BMS reconhecer o número correto de células.</li>
+                    <li>As leituras de tensão de cada célula no software forem consistentes com as medições do multímetro.</li>
+                    <li>A leitura de temperatura estiver funcionando.</li>
+                    <li>A configuração for salva com sucesso.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>6. REGISTROS</h2>
+            <ul>
+                <li>Ordem de Produção (OP) do pack, com o check-off da etapa de instalação do BMS e o número de série do BMS associado ao pack.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. SEGURANÇA</h2>
+            <ul>
+                <li class="warning">A conexão do chicote de balanceamento deve seguir a ordem exata para evitar danos permanentes ao BMS.</li>
+                <li class="warning">Nunca conectar ou desconectar o chicote com o BMS alimentado por uma fonte externa.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>8. CONTROLE DE ALTERAÇÕES</h2>
+            <table class="changes-table">
+                <thead>
+                    <tr>
+                        <th>Revisão</th>
+                        <th>Data</th>
+                        <th>Descrição da Alteração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00</td>
+                        <td>13/10/2025</td>
+                        <td>Emissão inicial do documento.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="signature-area">
+            <h2>Assinaturas:</h2>
+            
+            <div class="signature-line">
+                <p><strong>Elaborado por:</strong> (Nome/Cargo)</p>
+                <p>_________________________________________</p>
+            </div>
+            
+            <div class="signature-line">
+                <p><strong>Aprovado por:</strong> (Nome/Cargo)</p>
+                <p>_________________________________________</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

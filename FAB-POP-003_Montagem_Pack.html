@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP-003 - Montagem do Pack de Baterias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 25px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .header-table {
+            margin-bottom: 30px;
+        }
+        .changes-table {
+            margin-top: 30px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .code {
+            font-family: monospace;
+            background-color: #f8f9fa;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PROCEDIMENTO OPERACIONAL PADRÃO</h1>
+        
+        <table class="header-table">
+            <tr>
+                <th>Título:</th>
+                <td colspan="3">Montagem do Pack de Baterias (Conexão de Células)</td>
+            </tr>
+            <tr>
+                <th>Código:</th>
+                <td>POP-003</td>
+                <th>Revisão:</th>
+                <td>01</td>
+            </tr>
+            <tr>
+                <th>Data de Emissão:</th>
+                <td>12/10/2025</td>
+                <th>Próxima Revisão:</th>
+                <td>12/10/2026</td>
+            </tr>
+            <tr>
+                <th>Elaborado por:</th>
+                <td>Gerente de Operações</td>
+                <th>Aprovado por:</th>
+                <td>Diretoria</td>
+            </tr>
+        </table>
+
+        <div class="section">
+            <h2>1. OBJETIVO</h2>
+            <p>Padronizar a montagem dos packs de bateria, garantindo a correta conexão em série das células, o torque adequado dos barramentos (busbars) e a instalação dos sensores de temperatura, assegurando a performance e a segurança do conjunto.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. ESCOPO</h2>
+            <p>Este procedimento aplica-se a todos os grupos de células aprovados no POP-002. É executado pelos Técnicos de Montagem.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. RECURSOS NECESSÁRIOS</h2>
+            <ul>
+                <li><strong>Ferramentas:</strong> Torquímetro com isolamento VDE 1000V, soquetes adequados.</li>
+                <li><strong>Componentes:</strong> Grupo de 16 células (aprovadas), barramentos de cobre, parafusos, arruelas, sensores de temperatura, isoladores.</li>
+                <li><strong>EPIs:</strong> Luvas isolantes Classe 00, óculos de proteção, calçado de segurança.</li>
+                <li><strong>Documentação:</strong> Ordem de Produção (OP).</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. PROCEDIMENTO</h2>
+            <ol>
+                <li><strong>Preparação:</strong> Posicionar as 16 células aprovadas no gabarito de montagem, seguindo a orientação de polaridade (+/-) definida no projeto.</li>
+                <li><strong>Limpeza:</strong> Limpar os terminais das células e os barramentos com álcool isopropílico para remover qualquer resíduo.</li>
+                <li><strong>Instalação dos Sensores:</strong> Fixar os sensores de temperatura nos pontos indicados no projeto (geralmente nas células centrais do pack).</li>
+                <li><strong>Conexão em Série:</strong> Posicionar os barramentos de cobre, conectando o terminal positivo de uma célula ao negativo da célula seguinte, até que todas as 16 células estejam em série.</li>
+                <li><strong>Torque dos Parafusos:</strong> Utilizando o torquímetro calibrado (conforme IT-002), apertar todos os parafusos com o torque especificado de <strong>8 Nm ±5%</strong>. O torque inadequado é uma falha crítica que pode causar superaquecimento.</li>
+                <li><strong>Inspeção Visual:</strong> Verificar se todos os barramentos estão corretamente posicionados e se não há objetos estranhos entre as células.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>5. REGISTROS</h2>
+            <ul>
+                <li>Apontamento na Ordem de Produção (OP).</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. SEGURANÇA</h2>
+            <div class="warning">
+                <p><strong>ATENÇÃO:</strong></p>
+                <ul>
+                    <li>O pack de bateria agora possui uma tensão perigosa (~51.2V). O uso de EPIs é obrigatório.</li>
+                    <li>Nunca utilize ferramentas não isoladas.</li>
+                    <li>Não cause curto-circuito entre os terminais principais do pack.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>7. CONTROLE DE ALTERAÇÕES</h2>
+            <table class="changes-table">
+                <tr>
+                    <th>Revisão</th>
+                    <th>Data</th>
+                    <th>Descrição da Alteração</th>
+                </tr>
+                <tr>
+                    <td>00</td>
+                    <td>12/10/2025</td>
+                    <td>Emissão inicial do documento.</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>12/11/2025</td>
+                    <td>Correção do conteúdo que estava trocado com outros POPs.</td>
+                </tr>
+            </table>
+        </div>
+
+        <footer>
+            <p>Documento: FAB-POP-003_Montagem_Pack | Código: POP-003 | Revisão: 01</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SelEnergy - Documentação Técnica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            border-radius: 15px 15px 0 0;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .header-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 0 0 15px 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .doc-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #3498db;
+        }
+
+        .doc-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .doc-card p {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .doc-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
+            color: #868e96;
+            border-top: 1px solid #e9ecef;
+            padding-top: 10px;
+        }
+
+        .doc-type {
+            background: #3498db;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+
+        .featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #0DB02B 0%, #ED6E00 100%);
+            color: white;
+        }
+
+        .featured h3 {
+            color: white;
+            font-size: 1.5em;
+        }
+
+        .featured p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .featured .doc-type {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .doc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+            <h1>Documentação Técnica</h1>
+            <p>Procedimentos Operacionais Padrão e Instruções de Trabalho</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Fluxograma Interativo -->
+            <section class="section">
+                <h2 class="section-title">Visão Geral do Processo</h2>
+                <a href="fluxograma_interativo.html" class="doc-card featured">
+                    <h3>🔋 Fluxograma de Produção Interativo</h3>
+                    <p>Visualize todo o processo de fabricação de baterias LiFePO4 com navegação interativa entre os documentos</p>
+                    <div class="doc-meta">
+                        <span class="doc-type">FLUXOGRAMA</span>
+                        <span>Visualização Completa</span>
+                    </div>
+                </a>
+            </section>
+
+            <!-- POPs -->
+            <section class="section">
+                <h2 class="section-title">Procedimentos Operacionais Padrão (POPs)</h2>
+                <div class="doc-grid">
+                    <a href="FAB-POP-001_Recebimento_Inspecao.html" class="doc-card">
+                        <h3>POP-001: Recebimento e Inspeção de Matéria-Prima</h3>
+                        <p>Procedimento para recebimento e inspeção de células LiFePO4</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 00</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-POP-002_Teste_Celulas_Individuais.html" class="doc-card">
+                        <h3>POP-002: Teste de Células Individuais</h3>
+                        <p>Teste de capacidade e balanceamento das células LiFePO4</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 00</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-POP-003_Montagem_Pack.html" class="doc-card">
+                        <h3>POP-003: Montagem do Pack de Baterias</h3>
+                        <p>Montagem e conexão em série das células</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 01</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-POP-004_Instalacao_BMS.html" class="doc-card">
+                        <h3>POP-004: Instalação e Configuração do BMS</h3>
+                        <p>Instalação do Sistema de Gerenciamento de Bateria</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 00</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-POP-005_Teste_Ciclo.html" class="doc-card">
+                        <h3>POP-005: Teste de Ciclo Completo</h3>
+                        <p>Teste de carga/descarga para validação do pack</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 00</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-POP-006_Instalacao_Gabinete.html" class="doc-card">
+                        <h3>POP-006: Instalação no Gabinete e Selagem</h3>
+                        <p>Instalação final no gabinete com proteção IP63</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 00</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-POP-007_Teste_Final.html" class="doc-card">
+                        <h3>POP-007: Teste de Qualidade Final</h3>
+                        <p>Teste final de comunicação e segurança elétrica</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 00</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-POP-008_Embalagem.html" class="doc-card">
+                        <h3>POP-008: Embalagem e Identificação</h3>
+                        <p>Embalagem do produto acabado para expedição</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 01</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-POP-009_Controle_Estoque.html" class="doc-card">
+                        <h3>POP-009: Controle de Estoque</h3>
+                        <p>Controle de estoque e rastreabilidade</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 01</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-POP-010_Nao_Conformidades.html" class="doc-card">
+                        <h3>POP-010: Não Conformidades</h3>
+                        <p>Manuseio de produtos não conformes</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 01</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-POP-011_Logistica_Reversa.html" class="doc-card">
+                        <h3>POP-011: Logística Reversa ECOSAFE</h3>
+                        <p>Processo para baterias em fim de vida útil</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">POP</span>
+                            <span>Revisão 01</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ITs -->
+            <section class="section">
+                <h2 class="section-title">Instruções de Trabalho (ITs)</h2>
+                <div class="doc-grid">
+                    <a href="FAB-IT-001-Operacao Equipamento Teste_Ciclo.html" class="doc-card">
+                        <h3>IT-001: Operação do Equipamento de Teste</h3>
+                        <p>Operação do analisador de baterias Neware</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">IT</span>
+                            <span>Revisão 00</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-IT-002-Calibracao Instrumentos Medicao.html" class="doc-card">
+                        <h3>IT-002: Calibração de Instrumentos</h3>
+                        <p>Calibração de instrumentos de medição</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">IT</span>
+                            <span>Revisão 00</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-IT-003-Soldagem Busbars.html" class="doc-card">
+                        <h3>IT-003: Soldagem de Barramentos</h3>
+                        <p>Soldagem a laser de barramentos (busbars)</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">IT</span>
+                            <span>Revisão 00</span>
+                        </div>
+                    </a>
+
+                    <a href="FAB-IT-004-Configuracao Software BMS.html" class="doc-card">
+                        <h3>IT-004: Configuração do Software BMS</h3>
+                        <p>Configuração do BMS Daly com software PC-Master</p>
+                        <div class="doc-meta">
+                            <span class="doc-type">IT</span>
+                            <span>Revisão 00</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 SelEnergy. Todos os direitos reservados.</p>
+            <p>Documentação Técnica - Sistema de Gestão da Qualidade</p>
+        </footer>
+    </div>
+
+    <script>
+        // Adiciona animação suave ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.doc-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Adiciona feedback visual ao clicar nos cards
+        document.querySelectorAll('.doc-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Feedback visual
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

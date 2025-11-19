@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP-001 - Recebimento e Inspeção de Matéria-Prima</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        .header-logo {
+            position: absolute;
+            left: 360px;
+            top: 30px;
+            max-width: 200px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2980b9;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 20px;
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        .header-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        .header-table .label {
+            font-weight: bold;
+            background-color: #f5f5f5;
+            width: 30%;
+        }
+        .changes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .changes-table th, .changes-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .changes-table th {
+            background-color: #f2f2f2;
+        }
+         .signatures {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .signature-box {
+            text-align: center;
+            width: 40%;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            padding-top: 5px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .note {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+        <h1>PROCEDIMENTO OPERACIONAL PADRÃO</h1>
+        
+        <h2>Título: Recebimento e Inspeção de Matéria-Prima (Células LiFePO4)</h2>
+        
+        <table class="header-table">
+            <tr>
+                <td class="label">Código:</td>
+                <td>POP-001</td>
+                <td class="label">Revisão:</td>
+                <td>00</td>
+            </tr>
+            <tr>
+                <td class="label">Data de Emissão:</td>
+                <td>12/10/2025</td>
+                <td class="label">Próxima Revisão:</td>
+                <td>12/10/2026</td>
+            </tr>
+            <tr>
+                <td class="label">Elaborado por:</td>
+                <td>Geriel</td>
+                <td class="label">Aprovado por:</td>
+                <td>Geriel</td>
+            </tr>
+        </table>
+
+        <div class="section">
+            <h2>1. OBJETIVO</h2>
+            <p>Padronizar o processo de recebimento, inspeção e aceitação de células de Lítio Ferro Fosfato (LiFePO4) adquiridas de fornecedores homologados, garantindo que apenas materiais conformes e de alta qualidade sejam liberados para a linha de montagem.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. ESCOPO</h2>
+            <p>Este procedimento aplica-se a todos os lotes de células LiFePO4 recebidos pela SelEnergy, sendo executado pelo Técnico de Qualidade e pelo Almoxarifado.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. RECURSOS NECESSÁRIOS</h2>
+            
+            <h3>3.1. Equipamentos de Medição:</h3>
+            <ul>
+                <li>Multímetro digital com precisão de 3 casas decimais</li>
+                <li>Medidor de resistência interna (impedancímetro) - Ex: YR1035+</li>
+                <li>Paquímetro digital</li>
+                <li>Balança de precisão</li>
+            </ul>
+            
+            <h3>3.2. Equipamentos de Proteção Individual (EPIs):</h3>
+            <ul>
+                <li>Luvas de segurança (antiestáticas e isolantes)</li>
+                <li>Óculos de proteção</li>
+            </ul>
+            
+            <h3>3.3. Documentação:</h3>
+            <ul>
+                <li>Ordem de Compra (OC)</li>
+                <li>Nota Fiscal (NF)</li>
+                <li>Ficha Técnica do Produto (Datasheet do Fornecedor)</li>
+                <li>Formulário de Inspeção de Recebimento (FOR-QLD-001)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. PROCEDIMENTO</h2>
+            
+            <h3>4.1. Recebimento e Conferência Documental (Encarregado de Almoxarifado)</h3>
+            <ol>
+                <li><strong>Receber a carga:</strong> Recepcionar o transportador e direcionar a carga para a área de quarentena.</li>
+                <li><strong>Conferir a documentação:</strong> Verificar se a Nota Fiscal corresponde à Ordem de Compra (fornecedor, quantidade, descrição do produto).</li>
+                <li><strong>Inspeção preliminar da embalagem:</strong> Inspecionar visualmente as caixas em busca de avarias (amassados, furos, umidade). Registrar qualquer dano na NF e no formulário de recebimento.</li>
+                <li><strong>Registrar no sistema:</strong> Lançar a entrada da NF no sistema ERP, gerando um número de lote interno para rastreabilidade. O material deve ser alocado no estoque com status "QUARENTENA".</li>
+            </ol>
+            
+            <h3>4.2. Inspeção Visual e Dimensional (Técnico de Qualidade)</h3>
+            <ol>
+                <li><strong>Amostragem:</strong> Selecionar uma amostra de células do lote conforme plano de amostragem (Norma NBR 5426, Nível de Inspeção II, NQA 1,5).</li>
+                <li><strong>Inspeção Visual:</strong> Inspecionar cada célula da amostra em busca de:
+                    <ul>
+                        <li>Deformações, inchaços ou amassados no corpo da célula.</li>
+                        <li>Vazamentos de eletrólito.</li>
+                        <li>Corrosão ou danos nos terminais (positivo e negativo).</li>
+                        <li>Legibilidade do QR Code e das marcações do fabricante.</li>
+                    </ul>
+                </li>
+                <li><strong>Inspeção Dimensional:</strong> Utilizando o paquímetro e a balança, medir altura, largura, espessura e peso de 3 células da amostra. Comparar com as especificações da Ficha Técnica.</li>
+                <li><strong>Registrar:</strong> Anotar todos os resultados no Formulário de Inspeção de Recebimento (FOR-QLD-001).</li>
+            </ol>
+            
+            <h3>4.3. Inspeção Elétrica (Técnico de Qualidade)</h3>
+            <ol>
+                <li><strong>Medição de Tensão de Circuito Aberto (OCV):</strong>
+                    <ul>
+                        <li>Medir a tensão de cada célula da amostra com o multímetro.</li>
+                        <li>Assegurar que a ponta de prova positiva (vermelha) toque o terminal positivo e a negativa (preta) o terminal negativo.</li>
+                    </ul>
+                </li>
+                <li><strong>Medição de Resistência Interna (RI):</strong>
+                    <ul>
+                        <li>Medir a resistência interna de cada célula da amostra com o impedancímetro.</li>
+                    </ul>
+                </li>
+                <li><strong>Registrar:</strong> Anotar os valores de Tensão (OCV) e Resistência Interna (RI) de cada célula no formulário.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>5. CRITÉRIOS DE ACEITAÇÃO E REJEIÇÃO</h2>
+            
+            <h3>5.1. Aceitação do Lote:</h3>
+            <p>O lote será <strong>APROVADO</strong> se TODAS as condições abaixo forem atendidas:</p>
+            <ul>
+                <li>Documentação conforme.</li>
+                <li>Embalagens íntegras.</li>
+                <li>Nenhuma não conformidade crítica (vazamento, inchaço) na inspeção visual da amostra.</li>
+                <li>Dimensões e peso dentro da tolerância especificada na Ficha Técnica (±0.5mm / ±10g).</li>
+                <li>Tensão (OCV) de todas as células da amostra entre <strong>3.250V e 3.290V</strong>.</li>
+                <li>Resistência Interna (RI) de todas as células da amostra abaixo de <strong>0.35mΩ</strong>.</li>
+                <li>Variação máxima de 5mV na tensão e 0.05mΩ na resistência entre as células da amostra.</li>
+            </ul>
+            
+            <h3>5.2. Rejeição do Lote:</h3>
+            <p>O lote será <strong>REJEITADO</strong> se QUALQUER uma das condições abaixo ocorrer:</p>
+            <ul>
+                <li>Divergência entre NF e Ordem de Compra.</li>
+                <li>Avarias graves na embalagem que comprometam o produto.</li>
+                <li>Presença de qualquer célula com vazamento, inchaço ou terminais danificados.</li>
+                <li>Medidas dimensionais ou de peso fora da tolerância.</li>
+                <li>Tensão (OCV) ou Resistência Interna (RI) fora dos limites especificados.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. FLUXO DE APROVAÇÃO E REPROVAÇÃO</h2>
+            <ul>
+                <li><strong>Lote Aprovado:</strong> O Técnico de Qualidade assina o FOR-QLD-001 como "Aprovado" e comunica o Encarregado de Almoxarifado. O material tem seu status alterado para "LIBERADO" no sistema ERP e é movido para o estoque de matéria-prima.</li>
+                <li><strong>Lote Reprovado:</strong> O Técnico de Qualidade assina o FOR-QLD-001 como "Reprovado", anexa fotos e abre um Relatório de Não Conformidade (RNC), conforme <strong>POP-010</strong>. O material permanece em "QUARENTENA" até a definição do setor de Compras (devolução ao fornecedor).</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. REGISTROS</h2>
+            <ul>
+                <li>Formulário de Inspeção de Recebimento (FOR-QLD-001)</li>
+                <li>Relatório de Não Conformidade (RNC), se aplicável.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>8. SEGURANÇA</h2>
+            <ul>
+                <li>É obrigatório o uso de óculos de proteção e luvas durante todo o manuseio das células.</li>
+                <li>Nunca provoque curto-circuito nos terminais das células.</li>
+                <li>Em caso de contato com eletrólito, lave a área com água abundante e procure o responsável pela segurança.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>9. CONTROLE DE ALTERAÇÕES</h2>
+            <table class="changes-table">
+                <thead>
+                    <tr>
+                        <th>Revisão</th>
+                        <th>Data</th>
+                        <th>Descrição da Alteração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00</td>
+                        <td>12/10/2025</td>
+                        <td>Emissão inicial do documento.</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+                <div class="signatures">
+                    <div class="signature-box">
+                        <p><strong>Elaborado por:</strong></p>
+                        <div class="signature-line"></div>
+                        <p>(Nome/Cargo)</p>
+                    </div>
+                    
+                    <div class="signature-box">
+                        <p><strong>Aprovado por:</strong></p>
+                        <div class="signature-line"></div>
+                        <p>(Nome/Cargo)</p>
+                    </div>
+                </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP-010 - Manuseio de Não Conformidades</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #3498db;
+            margin-top: 20px;
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .header-table .label {
+            font-weight: bold;
+            background-color: #ecf0f1;
+            width: 30%;
+            color: #2c3e50;
+        }
+        .changes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .changes-table th, .changes-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .changes-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        .signature-area {
+            margin-top: 50px;
+            padding-top: 30px;
+        }
+        .signature-line {
+            margin-top: 40px;
+        }
+        .signature-line p {
+            margin: 8px 0;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        ul, ol {
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .warning {
+            color: #e74c3c;
+            font-weight: bold;
+            background-color: #fdf2f2;
+            padding: 10px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+        }
+        .resources-box {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .resources-box h4 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .procedure-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .procedure-box h4 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .revision-note {
+            background-color: #fff8e1;
+            padding: 10px 15px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        .form-reference {
+            background-color: #e3f2fd;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #1565c0;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .disposition-options {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .disposition-options h4 {
+            margin-top: 0;
+            color: #2e7d32;
+        }
+        .analysis-method {
+            background-color: #fff3e0;
+            padding: 10px 15px;
+            border-left: 4px solid #ff9800;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PROCEDIMENTO OPERACIONAL PADRÃO</h1>
+        
+        <h2>Título: Manuseio de Não Conformidades</h2>
+        
+        <table class="header-table">
+            <tr>
+                <td class="label">Código:</td>
+                <td>POP-010</td>
+                <td class="label">Revisão:</td>
+                <td>01</td>
+            </tr>
+            <tr>
+                <td class="label">Data de Emissão:</td>
+                <td>14/10/2025</td>
+                <td class="label">Próxima Revisão:</td>
+                <td>14/10/2026</td>
+            </tr>
+            <tr>
+                <td class="label">Elaborado por:</td>
+                <td>Geriel</td>
+                <td class="label">Aprovado por:</td>
+                <td></td>
+            </tr>
+        </table>
+
+        
+
+        <div class="section">
+            <h2>1. OBJETIVO</h2>
+            <p>Estabelecer a sistemática para identificar, registrar, analisar e tratar não conformidades encontradas em produtos, componentes ou processos, garantindo que as causas sejam eliminadas e que a recorrência seja evitada.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. ESCOPO</h2>
+            <p>Este procedimento aplica-se a todas as não conformidades identificadas desde o recebimento de matéria-prima até a inspeção final do produto acabado, envolvendo as áreas de Almoxarifado, Produção e Qualidade.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. RECURSOS NECESSÁRIOS</h2>
+            
+            <div class="resources-box">
+                <h4>Formulário:</h4>
+                <ul>
+                    <li>Relatório de Não Conformidade (RNC) - <span class="form-reference">FOR-QLD-004</span></li>
+                </ul>
+                
+                <h4>Área de Quarentena/Não Conformes:</h4>
+                <ul>
+                    <li>Área designada e identificada para segregação de materiais reprovados</li>
+                </ul>
+                
+                <h4>Etiquetas de Identificação:</h4>
+                <ul>
+                    <li>"NÃO CONFORME", "APROVADO", "REPROVADO", "EM ANÁLISE"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. PROCEDIMENTO</h2>
+            
+            <div class="procedure-box">
+                <h4>4.1. Identificação e Segregação da Não Conformidade</h4>
+                <ol>
+                    <li><strong>Identificação:</strong> Qualquer colaborador que identificar uma não conformidade (ex: componente fora de especificação, erro no processo, falha em teste) deve imediatamente interromper o uso do material ou a execução da tarefa.</li>
+                    <li><strong>Comunicação:</strong> O colaborador deve comunicar seu superior imediato e o Técnico de Qualidade.</li>
+                    <li><strong>Segregação:</strong> O material/produto não conforme deve ser claramente identificado com a etiqueta "NÃO CONFORME" e movido para a Área de Quarentena para evitar o uso acidental.</li>
+                </ol>
+            </div>
+            
+            <div class="procedure-box">
+                <h4>4.2. Abertura do Relatório de Não Conformidade (RNC)</h4>
+                <ol>
+                    <li>O Técnico de Qualidade é responsável por abrir um <strong>Relatório de Não Conformidade <span class="form-reference">(FOR-QLD-004)</span></strong> para cada não conformidade identificada.</li>
+                    <li>O RNC deve ser preenchido com todas as informações da Seção 1 (Identificação), detalhando o problema encontrado na Seção 2 (Descrição).</li>
+                </ol>
+            </div>
+            
+            <div class="procedure-box">
+                <h4>4.3. Análise e Disposição do Material</h4>
+                <ol>
+                    <li>O Gerente de Qualidade, juntamente com o Gerente de Operações (e outros envolvidos, se necessário), deve analisar a não conformidade.</li>
+                    <li><strong>Análise da Causa Raiz:</strong> 
+                        <div class="analysis-method">
+                            Utilizar o método dos "5 Porquês" ou outra ferramenta da qualidade para identificar a causa fundamental do problema.
+                        </div>
+                    </li>
+                    <li><strong>Definição da Disposição:</strong> Com base na análise, o time deve decidir o que fazer com o material não conforme, registrando na Seção 4 do RNC:</li>
+                </ol>
+                
+                <div class="disposition-options">
+                    <h4>Opções de Disposição:</h4>
+                    <ul>
+                        <li><strong>Refugo:</strong> O material não pode ser recuperado e deve ser descartado (seguindo o PGRS).</li>
+                        <li><strong>Retrabalho:</strong> O material pode ser corrigido para atender às especificações. Um plano de retrabalho deve ser definido.</li>
+                        <li><strong>Devolução ao Fornecedor:</strong> Se a falha for da matéria-prima, o material será devolvido ao fornecedor.</li>
+                        <li><strong>Concessão:</strong> Em casos muito específicos, o uso do material pode ser aprovado pela Diretoria, mesmo fora da especificação, desde que não comprometa a segurança ou a performance do produto final.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="procedure-box">
+                <h4>4.4. Plano de Ação Corretiva e Preventiva</h4>
+                <ol>
+                    <li>Com base na causa raiz, a equipe deve definir ações para <strong>corrigir</strong> o problema imediato e <strong>prevenir</strong> que ele ocorra novamente.</li>
+                    <li>As ações devem ser registradas na Seção 5 do RNC, com responsáveis e prazos claros.</li>
+                </ol>
+            </div>
+            
+            <div class="procedure-box">
+                <h4>4.5. Verificação da Eficácia e Encerramento</h4>
+                <ol>
+                    <li>Após a implementação das ações, o Gerente de Qualidade deve verificar se elas foram eficazes em eliminar a causa raiz.</li>
+                    <li>Uma vez confirmada a eficácia, o RNC pode ser encerrado e arquivado.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. REGISTROS</h2>
+            <ul>
+                <li>Relatório de Não Conformidade <span class="form-reference">(FOR-QLD-004)</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. SEGURANÇA</h2>
+            <ul>
+                <li class="warning">O manuseio de materiais não conformes deve seguir os mesmos procedimentos de segurança aplicáveis ao processo normal.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. CONTROLE DE ALTERAÇÕES</h2>
+            <table class="changes-table">
+                <thead>
+                    <tr>
+                        <th>Revisão</th>
+                        <th>Data</th>
+                        <th>Descrição da Alteração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00</td>
+                        <td>12/10/2025</td>
+                        <td>Emissão inicial do documento.</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>14/10/2025</td>
+                        <td>Correção do conteúdo que estava duplicado com o POP-011.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="signature-area">
+            <h2>Assinaturas:</h2>
+            
+            <div class="signature-line">
+                <p><strong>Elaborado por:</strong> (Nome/Cargo)</p>
+                <p>_________________________________________</p>
+            </div>
+            
+            <div class="signature-line">
+                <p><strong>Aprovado por:</strong> (Nome/Cargo)</p>
+                <p>_________________________________________</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

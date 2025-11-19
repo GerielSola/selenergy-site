@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POP-011 - Logística Reversa (ECOSAFE)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #219653;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #27ae60;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #27ae60;
+            margin-top: 20px;
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .header-table .label {
+            font-weight: bold;
+            background-color: #ecf0f1;
+            width: 30%;
+            color: #2c3e50;
+        }
+        .changes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .changes-table th, .changes-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .changes-table th {
+            background-color: #27ae60;
+            color: white;
+            font-weight: bold;
+        }
+        .signature-area {
+            margin-top: 50px;
+            padding-top: 30px;
+        }
+        .signature-line {
+            margin-top: 40px;
+        }
+        .signature-line p {
+            margin: 8px 0;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        ul, ol {
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .warning {
+            color: #e74c3c;
+            font-weight: bold;
+            background-color: #fdf2f2;
+            padding: 10px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+        }
+        .critical-warning {
+            color: #c0392b;
+            font-weight: bold;
+            background-color: #f9ebea;
+            padding: 12px;
+            border-left: 4px solid #c0392b;
+            margin: 15px 0;
+            border: 1px solid #e74c3c;
+        }
+        .resources-box {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .resources-box h4 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .procedure-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .procedure-box h4 {
+            margin-top: 0;
+            color: #219653;
+        }
+        .revision-note {
+            background-color: #fff8e1;
+            padding: 10px 15px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        .form-reference {
+            background-color: #e3f2fd;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #1565c0;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .legal-reference {
+            background-color: #e8f5e9;
+            padding: 10px 15px;
+            border-left: 4px solid #4caf50;
+            margin: 10px 0;
+        }
+        .voltage-info {
+            background-color: #fff3e0;
+            padding: 10px 15px;
+            border-left: 4px solid #ff9800;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .storage-info {
+            background-color: #e3f2fd;
+            padding: 10px 15px;
+            border-left: 4px solid #2196f3;
+            margin: 10px 0;
+        }
+        .environmental-badge {
+            background-color: #27ae60;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PROCEDIMENTO OPERACIONAL PADRÃO</h1>
+        
+        <h2>Título: Logística Reversa <span class="environmental-badge">ECOSAFE</span></h2>
+        
+        <table class="header-table">
+            <tr>
+                <td class="label">Código:</td>
+                <td>POP-011</td>
+                <td class="label">Revisão:</td>
+                <td>01</td>
+            </tr>
+            <tr>
+                <td class="label">Data de Emissão:</td>
+                <td>14/10/2025</td>
+                <td class="label">Próxima Revisão:</td>
+                <td>14/10/2026</td>
+            </tr>
+            <tr>
+                <td class="label">Elaborado por:</td>
+                <td>Gerente de Operações</td>
+                <td class="label">Aprovado por:</td>
+                <td>Diretoria</td>
+            </tr>
+        </table>
+
+        
+
+        <div class="section">
+            <h2>1. OBJETIVO</h2>
+            <p>Estabelecer o processo para recebimento, triagem, armazenamento e destinação final de baterias em fim de vida útil, em conformidade com:</p>
+            <div class="legal-reference">
+                <strong>Legislação Aplicável:</strong>
+                <ul>
+                    <li>Política Nacional de Resíduos Sólidos (Lei nº 12.305/2010)</li>
+                    <li>Resolução CONAMA nº 401/2008</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. ESCOPO</h2>
+            <p>Este procedimento aplica-se a todas as baterias da marca SelEnergy retornadas por clientes ou distribuidores ao final de sua vida útil. Envolve as áreas de Atendimento ao Cliente, Almoxarifado e Qualidade.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. RECURSOS NECESSÁRIOS</h2>
+            
+            <div class="resources-box">
+                <ul>
+                    <li>Área de armazenamento temporário para baterias usadas, devidamente sinalizada e com contenção</li>
+                    <li>Contentores de transporte homologados para baterias de lítio usadas (UN 3480)</li>
+                    <li>EPIs: Luvas isolantes, óculos de proteção, protetor facial</li>
+                    <li>Formulário de Recebimento de Bateria Usada <span class="form-reference">(FOR-AMB-001)</span></li>
+                    <li>Contrato com empresa de reciclagem homologada</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. PROCEDIMENTO</h2>
+            
+            <div class="procedure-box">
+                <h4>4.1. Recebimento da Bateria Usada</h4>
+                <ol>
+                    <li><strong>Contato do Cliente:</strong> O processo inicia quando o cliente entra em contato com o SAC para solicitar o descarte da bateria.</li>
+                    <li><strong>Autorização de Postagem/Coleta:</strong> O SAC gera uma autorização de logística reversa, enviando ao cliente as instruções e, se for o caso, uma autorização de postagem pré-paga ou agendando uma coleta.</li>
+                    <li><strong>Recebimento Físico:</strong> O Encarregado de Almoxarifado recebe a bateria, preenche o Formulário de Recebimento <span class="form-reference">(FOR-AMB-001)</span> e armazena o produto na área de quarentena para resíduos.</li>
+                </ol>
+            </div>
+            
+            <div class="procedure-box">
+                <h4>4.2. Triagem e Avaliação (Técnico de Qualidade)</h4>
+                <ol>
+                    <li><strong>Inspeção Visual:</strong> Inspecionar a bateria em busca de danos físicos severos (inchaço, vazamentos, danos por fogo). Baterias severamente danificadas devem ser manuseadas com cuidado extra e armazenadas em um recipiente com areia (vermiculita).</li>
+                    <li><strong>Teste de Tensão:</strong> Medir a tensão do pack.</li>
+                    <div class="voltage-info">
+                        <strong>Critério:</strong> Se a tensão for superior a 2V por célula, a bateria precisa ser descarregada completamente antes do armazenamento prolongado ou transporte.
+                    </div>
+                    <li><strong>Descarga de Segurança:</strong> Conectar a bateria a uma carga resistiva para descarregá-la completamente (tensão próxima de 0V). Este processo deve ser feito em área segura e monitorada.</li>
+                </ol>
+            </div>
+            
+            <div class="procedure-box">
+                <h4>4.3. Armazenamento Temporário</h4>
+                <ol>
+                    <li>Após a descarga, a bateria deve ser etiquetada como "RESÍDUO PERIGOSO - BATERIA DE LÍTIO PARA RECICLAGEM".</li>
+                    <li>Armazenar as baterias descarregadas nos contentores de transporte homologados, na área designada para resíduos perigosos.</li>
+                </ol>
+                <div class="storage-info">
+                    <strong>UN 3480:</strong> Contentores homologados para transporte de baterias de lítio usadas
+                </div>
+            </div>
+            
+            <div class="procedure-box">
+                <h4>4.4. Destinação Final</h4>
+                <ol>
+                    <li><strong>Acúmulo de Lote:</strong> Quando o contentor atingir sua capacidade máxima (ou a cada 6 meses), o Gerente de Operações deve acionar a empresa de reciclagem parceira.</li>
+                    <li><strong>Emissão de Documentação:</strong> Emitir a Nota Fiscal de Remessa para Descarte e o Manifesto de Transporte de Resíduos (MTR).</li>
+                    <li><strong>Coleta e Transporte:</strong> A empresa parceira realiza a coleta do lote de baterias para transporte e destinação final (reciclagem).</li>
+                    <li><strong>Certificado de Destinação:</strong> A empresa de reciclagem deve emitir um Certificado de Destinação Final, que comprova o descarte ambientalmente correto do resíduo. Este documento deve ser arquivado.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. REGISTROS</h2>
+            <ul>
+                <li>Formulário de Recebimento de Bateria Usada <span class="form-reference">(FOR-AMB-001)</span></li>
+                <li>Manifesto de Transporte de Resíduos (MTR)</li>
+                <li>Certificado de Destinação Final</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. SEGURANÇA</h2>
+            <ul>
+                <li class="critical-warning">O manuseio de baterias usadas apresenta alto risco. O uso de EPIs completos é obrigatório.</li>
+                <li class="warning">A área de armazenamento de resíduos deve ser seca, ventilada e distante de fontes de calor.</li>
+                <li class="critical-warning">Nunca tente abrir ou desmontar uma bateria usada.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. CONTROLE DE ALTERAÇÕES</h2>
+            <table class="changes-table">
+                <thead>
+                    <tr>
+                        <th>Revisão</th>
+                        <th>Data</th>
+                        <th>Descrição da Alteração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00</td>
+                        <td>14/10/2025</td>
+                        <td>Emissão inicial do documento.</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>11/11/2025</td>
+                        <td>Revisão geral do procedimento.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="signature-area">
+            <h2>Assinaturas:</h2>
+            
+            <div class="signature-line">
+                <p><strong>Elaborado por:</strong> (Nome/Cargo)</p>
+                <p>_________________________________________</p>
+            </div>
+            
+            <div class="signature-line">
+                <p><strong>Aprovado por:</strong> (Nome/Cargo)</p>
+                <p>_________________________________________</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

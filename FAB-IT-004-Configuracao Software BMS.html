@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT-004 - Configuração de Software do BMS (Daly)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #9b59b6;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #8e44ad;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #9b59b6;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #9b59b6;
+            margin-top: 20px;
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        .header-table .label {
+            font-weight: bold;
+            background-color: #ecf0f1;
+            width: 30%;
+            color: #2c3e50;
+        }
+        .parameters-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .parameters-table th, .parameters-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .parameters-table th {
+            background-color: #9b59b6;
+            color: white;
+            font-weight: bold;
+        }
+        .parameters-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .changes-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .changes-table th, .changes-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .changes-table th {
+            background-color: #9b59b6;
+            color: white;
+            font-weight: bold;
+        }
+        .step-box {
+            background-color: #f5eef8;
+            border-left: 4px solid #9b59b6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .step-box h4 {
+            margin-top: 0;
+            color: #8e44ad;
+        }
+        .software-info {
+            background-color: #e8f5e9;
+            padding: 10px 15px;
+            border-left: 4px solid #4caf50;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .warning {
+            color: #e74c3c;
+            font-weight: bold;
+            background-color: #fdf2f2;
+            padding: 10px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+        }
+        .pop-reference {
+            background-color: #fff8e1;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #f39c12;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .button-reference {
+            background-color: #3498db;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>INSTRUÇÃO DE TRABALHO</h1>
+        
+        <h2>Título: Configuração de Software do BMS (Daly)</h2>
+        
+        <table class="header-table">
+            <tr>
+                <td class="label">Código:</td>
+                <td>IT-004</td>
+                <td class="label">Revisão:</td>
+                <td>00</td>
+            </tr>
+            <tr>
+                <td class="label">Data de Emissão:</td>
+                <td>12/11/2025</td>
+                <td class="label">POP Associado:</td>
+                <td><span class="pop-reference">POP-004</span></td>
+            </tr>
+            <tr>
+                <td class="label">Elaborado por:</td>
+                <td>Técnico de Qualidade</td>
+                <td class="label">Aprovado por:</td>
+                <td>Gerente de Operações</td>
+            </tr>
+        </table>
+
+        <div class="section">
+            <h2>1. OBJETIVO</h2>
+            <p>Detalhar o procedimento de conexão e programação dos parâmetros do BMS Daly utilizando o software "PC-Master", garantindo que todas as proteções e funcionalidades do BMS estejam configuradas corretamente para cada modelo de bateria.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. EQUIPAMENTOS E SOFTWARE</h2>
+            <ul>
+                <li><strong>BMS:</strong> Daly Smart BMS (modelo específico para o pack)</li>
+                <li><strong>Software:</strong> Daly PC-Master V3.2</li>
+                <li><strong>Interface:</strong> Adaptador USB-RS485/CAN</li>
+                <li><strong>Computador:</strong> Estação de trabalho com Windows 10/11</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>3. PROCEDIMENTO PASSO A PASSO</h2>
+            
+            <div class="step-box">
+                <h4>3.1. Conexão Física</h4>
+                <ol>
+                    <li>Após a instalação do BMS no pack (conforme <span class="pop-reference">POP-004</span>), conecte o adaptador USB-RS485/CAN à porta de comunicação do BMS.</li>
+                    <li>Conecte a outra extremidade do adaptador (USB) ao computador.</li>
+                    <li>O Windows deve reconhecer o dispositivo e atribuir uma porta COM (ex: COM3). Verifique no "Gerenciador de Dispositivos" qual porta foi atribuída.</li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h4>3.2. Conexão do Software</h4>
+                <ol>
+                    <li>Abra o software <span class="software-info">PC-Master</span>.</li>
+                    <li>Na tela inicial, selecione a porta COM correta no menu suspenso "Port".</li>
+                    <li>Clique em <span class="button-reference">"Connect"</span>. O software tentará se comunicar com o BMS.</li>
+                    <li>Se a conexão for bem-sucedida, o status mudará para <strong>"Connected"</strong> e os campos da tela "Basic Info" serão preenchidos com os dados atuais do BMS.</li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h4>3.3. Carregando e Verificando Parâmetros</h4>
+                <ol>
+                    <li>Vá para a aba <span class="button-reference">"Parameter Setting"</span>.</li>
+                    <li>Clique em <span class="button-reference">"Load Parameters from File"</span>.</li>
+                    <li>Navegue até a pasta de configurações e selecione o arquivo de configuração correspondente ao modelo da bateria em montagem (ex: <code>SelEnergy_48V_230Ah_Config.cfg</code>).</li>
+                    <li>Os parâmetros do arquivo serão carregados nas caixas de texto da tela. <span class="warning">NÃO clique em "Write" ainda.</span></li>
+                    <li><strong>Verifique visualmente</strong> os parâmetros críticos carregados, comparando-os com a tabela de referência abaixo.</li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h4>3.4. Tabela de Parâmetros de Referência (Exemplo: 48V 230Ah)</h4>
+                
+                <table class="parameters-table">
+                    <thead>
+                        <tr>
+                            <th>Seção</th>
+                            <th>Parâmetro</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="4"><strong>Voltage</strong></td>
+                            <td>Cell Overvoltage Protection</td>
+                            <td>3.75 V</td>
+                        </tr>
+                        <tr>
+                            <td>Cell Overvoltage Release</td>
+                            <td>3.60 V</td>
+                        </tr>
+                        <tr>
+                            <td>Cell Undervoltage Protection</td>
+                            <td>2.50 V</td>
+                        </tr>
+                        <tr>
+                            <td>Cell Undervoltage Release</td>
+                            <td>2.80 V</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2"><strong>Current</strong></td>
+                            <td>Charge Overcurrent Protection</td>
+                            <td>150 A</td>
+                        </tr>
+                        <tr>
+                            <td>Discharge Overcurrent Protection</td>
+                            <td>250 A</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2"><strong>Temperature</strong></td>
+                            <td>Charge Overtemperature Protection</td>
+                            <td>55 °C</td>
+                        </tr>
+                        <tr>
+                            <td>Discharge Overtemperature Protection</td>
+                            <td>65 °C</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2"><strong>Balancing</strong></td>
+                            <td>Balancing Turn-on Voltage</td>
+                            <td>3.45 V</td>
+                        </tr>
+                        <tr>
+                            <td>Balancing Precision</td>
+                            <td>10 mV</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2"><strong>Basic</strong></td>
+                            <td>Battery Series</td>
+                            <td>16 S</td>
+                        </tr>
+                        <tr>
+                            <td>Battery Capacity</td>
+                            <td>230 Ah</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="step-box">
+                <h4>3.5. Escrevendo os Parâmetros no BMS</h4>
+                <ol>
+                    <li>Após a verificação, clique no botão <span class="button-reference">"Write Parameters to BMS"</span>.</li>
+                    <li>Uma barra de progresso aparecerá. Aguarde a conclusão.</li>
+                    <li>Ao final, uma mensagem de "Write Successful" será exibida.</li>
+                </ol>
+            </div>
+            
+            <div class="step-box">
+                <h4>3.6. Verificação Final</h4>
+                <ol>
+                    <li>Clique no botão <span class="button-reference">"Read Parameters from BMS"</span>.</li>
+                    <li>O software irá ler os parâmetros que acabaram de ser gravados.</li>
+                    <li>Compare novamente os parâmetros lidos com a tabela de referência para garantir que a gravação foi 100% correta.</li>
+                    <li>Vá para a aba <span class="button-reference">"Real-time Data"</span> e verifique se as tensões individuais de cada uma das 16 células estão sendo exibidas corretamente.</li>
+                    <li>Desconecte o software clicando em <span class="button-reference">"Disconnect"</span> e remova o adaptador USB.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. SOLUÇÃO DE PROBLEMAS</h2>
+            <ul>
+                <li><strong>"Cannot connect to BMS":</strong>
+                    <ul>
+                        <li>Verifique se a porta COM selecionada está correta.</li>
+                        <li>Verifique se o chicote de balanceamento está corretamente conectado ao BMS.</li>
+                        <li>Certifique-se de que o pack de bateria tem carga suficiente (pelo menos 20% de SoC).</li>
+                    </ul>
+                </li>
+                <li><strong>"Write Failed":</strong>
+                    <ul>
+                        <li>Tente novamente. Se o erro persistir, reinicie o BMS (desconectando e reconectando o chicote de balanceamento) e tente novamente.</li>
+                        <li>Se o problema continuar, substitua a placa do BMS e abra um RNC (<span class="pop-reference">POP-010</span>).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>5. CONTROLE DE ALTERAÇÕES</h2>
+            <table class="changes-table">
+                <thead>
+                    <tr>
+                        <th>Revisão</th>
+                        <th>Data</th>
+                        <th>Descrição da Alteração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00</td>
+                        <td>12/11/2025</td>
+                        <td>Emissão inicial do documento.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

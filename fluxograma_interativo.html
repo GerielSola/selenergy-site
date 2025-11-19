@@ -1,0 +1,540 @@
+<!DOCTYPE html><!-- Define o tipo de documento como HTML5 -->
+<html lang="pt-BR"><!-- Início do HTML, idioma definido como português do Brasil -->
+<head><!-- Cabeçalho do documento -->
+    <meta charset="UTF-8"><!-- Define o padrão de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Deixa o site responsivo no mobile -->
+    <title>Fluxograma de Produção - SelEnergy</title><!-- Título da aba do navegador -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script><!-- Importa a biblioteca Mermaid para criar o fluxograma -->
+    <style>
+           * {
+            margin: 0; /* Remove margem padrão */
+            padding: 0; /* Remove padding padrão */
+            box-sizing: border-box; /* Inclui bordas e padding na largura total dos elementos */
+        }
+
+        body {  
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;/* Fonte padrão */
+             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);/* Fundo com degradê laranja */
+            min-height: 100vh;/* Altura mínima ocupa toda a tela */
+            padding: 20px;/* Espaçamento interno */
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background:  white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0db02b 0%, #ed6e00 100%);/* Banner verde com degradê */
+            color: white;/* Texto branco */
+            padding: 30px;/* Espaçamento */
+            text-align: center; /* Centraliza texto */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em; /* Tamanho do título */
+            margin-bottom: 10px; /* Espaço abaixo do título */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave no texto */
+        }
+
+        .header p {
+            font-size: 1.2em;/* Tamanho do subtítulo */
+            opacity: 0.9;/* Leve transparência */
+        }
+        .header-logo {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            max-width: 200px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        .legend {
+            background: #f8f9fa;/* Fundo cinza claro */
+            padding: 20px 30px; /* Espaçamento */
+            border-bottom: 2px solid #e0e0e0; /* Linha separadora inferior */
+        }
+
+        .legend h2 {
+            color: #333; /* Cor do título da legenda */
+            margin-bottom: 15px; /* Espaço inferior */
+            font-size: 1.5em; /* Tamanho da fonte */
+        }
+
+        .legend-grid {
+            display: grid; /* Grade responsiva */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste automático */
+            gap: 15px; /* Espaçamento entre blocos */
+        }
+
+        .legend-item {
+            display: flex; /* Alinha horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            gap: 10px; /* Espaço entre cor e texto */
+            padding: 10px; /* Espaçamento interno */
+            background: white; /* Fundo branco */
+            border-radius: 8px; /* Bordas arredondadas */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Pequena sombra */
+        }
+
+        .legend-color {
+            width: 30px; /* Caixa de cor da legenda */
+            height: 30px;
+            border-radius: 5px;
+            flex-shrink: 0; /* Evita deformação */
+        }
+
+        .legend-text {
+            font-size: 0.9em; /* Tamanho menor para textos */
+            color: #555; /* Cinza escuro */
+        }
+
+        .diagram-container {
+            padding: 40px; /* Espaçamento */
+            background: white; /* Fundo branco */
+            overflow-x: auto; /* Habilita scroll horizontal quando necessário */
+        }
+
+        .mermaid {
+            display: flex; /* Centraliza o diagrama */
+            justify-content: center;
+        }
+
+        /* Estilo para elementos clicáveis */
+        .node rect, .node polygon, .node circle, .node ellipse {
+            cursor: pointer;
+        }
+
+        .node:hover rect, .node:hover polygon {
+            filter: brightness(0.9);
+            stroke-width: 3px;
+        }
+
+        .controls {
+            padding: 20px 30px; /* Espaçamento */
+            background: #f8f9fa; /* Fundo cinza claro */
+            border-top: 2px solid #e0e0e0; /* Linha separadora */
+            display: flex; /* Organiza botões na horizontal */
+            justify-content: center; /* Centraliza */
+            gap: 1px; /* Espaçamento entre botões */
+            flex-wrap: wrap; /* Quebra linha no mobile */
+        }
+
+        .btn {
+            padding: 12px 24px;/* Tamanho dos botões */
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer; /* Muda o cursor ao passar */
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradiente roxo/azul */
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px); /* Eleva botão ao passar o mouse */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+           background:linear-gradient(135deg, #0DB02B 0%, #ED6E00 100%); /* Fundo preto/cinza */
+            color: white; /* Texto branco */
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        @media print {/* Regras quando imprimir */
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none; /* Remove sombras ao imprimir */
+            }
+
+            .controls,
+            .footer {
+                display: none;/* Oculta botões e rodapé na impressão */
+            }
+        }
+
+        @media (max-width: 768px) {/* Regras para mobile */
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .legend-grid {
+                grid-template-columns: 1fr; /* Legenda em uma coluna */
+            }
+
+            .diagram-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body> <!-- Corpo do documento -->
+    <div class="container">
+        <div class="header">
+            <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+            <h1>🔋 Fluxograma de Produção</h1>
+            <p>SelEnergy - Baterias LiFePO4</p> 
+        </div>
+
+        <div class="legend">
+            <h2>📊 Legenda de Cores</h2>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #90EE90;"></div>
+                    <span class="legend-text">Início/Fim do Processo</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #87CEEB;"></div>
+                    <span class="legend-text">POPs (Procedimentos)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #F0E68C;"></div>
+                    <span class="legend-text">ITs (Instruções Técnicas)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FF6B6B;"></div>
+                    <span class="legend-text">Não Conformidades (RNC)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #8B0000;"></div>
+                    <span class="legend-text">Refugo/Descarte</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FFA500;"></div>
+                    <span class="legend-text">Retrabalho</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #32CD32;"></div>
+                    <span class="legend-text">Produto Aprovado</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #DDA0DD;"></div>
+                    <span class="legend-text">Logística Reversa</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    Start([Início da Produção]) --> POP001
+    
+    POP001[POP-001: Recebimento e Inspeção<br/>de Matéria-Prima]
+    POP001 --> Decision001{Aprovado?}
+    Decision001 -->|Não| NC001[Abrir RNC<br/>POP-010]
+    NC001 --> Refugo1[Devolução ao<br/>Fornecedor]
+    Decision001 -->|Sim| POP002
+    
+    POP002[POP-002: Teste de<br/>Células Individuais]
+    POP002 --> IT001[IT-001: Operação do<br/>Equipamento de Teste]
+    IT001 --> Decision002{Aprovado?}
+    Decision002 -->|Não| NC002[Abrir RNC<br/>POP-010]
+    NC002 --> Refugo2[Refugo]
+    Decision002 -->|Sim| POP003
+    
+    POP003[POP-003: Montagem do<br/>Pack de Baterias]
+    POP003 --> IT003[IT-003: Fixação<br/>de Busbars]
+    IT003 --> IT002[IT-002: Verificação<br/>de Torquímetro]
+    IT002 --> Decision003{Torque OK?}
+    Decision003 -->|Não| NC003[Abrir RNC<br/>POP-010]
+    NC003 --> Retrabalho1[Retrabalho]
+    Retrabalho1 --> POP003
+    Decision003 -->|Sim| POP004
+    
+    POP004[POP-004: Instalação e<br/>Configuração do BMS]
+    POP004 --> IT004[IT-004: Configuração<br/>de Software do BMS]
+    IT004 --> Decision004{BMS OK?}
+    Decision004 -->|Não| NC004[Abrir RNC<br/>POP-010]
+    NC004 --> Retrabalho2[Retrabalho]
+    Retrabalho2 --> POP004
+    Decision004 -->|Sim| POP005
+    
+    POP005[POP-005: Teste de Ciclo<br/>Completo Carga/Descarga]
+    POP005 --> IT001B[IT-001: Operação do<br/>Equipamento de Teste]
+    IT001B --> Decision005{Capacidade ≥100%<br/>Desbalanceamento <50mV?}
+    Decision005 -->|Não| NC005[Abrir RNC<br/>POP-010]
+    NC005 --> Refugo3[Refugo]
+    Decision005 -->|Sim| POP006
+    
+    POP006[POP-006: Instalação no<br/>Gabinete e Selagem]
+    POP006 --> Decision006{Selagem OK<br/>IP63?}
+    Decision006 -->|Não| Retrabalho3[Retrabalho]
+    Retrabalho3 --> POP006
+    Decision006 -->|Sim| POP007
+    
+    POP007[POP-007: Teste de Qualidade<br/>Final e Comunicação]
+    POP007 --> Test1{Comunicação<br/>CAN/RS485 OK?}
+    Test1 -->|Não| NC007[Abrir RNC<br/>POP-010]
+    NC007 --> Retrabalho4[Retrabalho]
+    Retrabalho4 --> POP007
+    Test1 -->|Sim| Test2{HiPot<br/><5mA?}
+    Test2 -->|Não| NC007B[Abrir RNC<br/>POP-010]
+    NC007B --> Refugo4[Refugo]
+    Test2 -->|Sim| Aprovado[Etiqueta:<br/>PRODUTO APROVADO]
+    
+    Aprovado --> POP008[POP-008: Embalagem e<br/>Identificação]
+    POP008 --> Label[Aplicar Etiqueta<br/>QR Code + Serial]
+    Label --> POP009[POP-009: Controle de<br/>Estoque e Rastreabilidade]
+    POP009 --> ERP[Registro no ERP<br/>Número de Série]
+    ERP --> Expedicao[Expedição]
+    
+    Expedicao --> End([Produto Enviado<br/>ao Cliente])
+    
+    End -.-> POP011[POP-011: Logística Reversa<br/>ECOSAFE]
+    POP011 -.-> Reciclagem[Reciclagem<br/>Fim de Vida Útil]
+    
+    style Start fill:#90EE90
+    style End fill:#90EE90
+    style Reciclagem fill:#FFB6C1
+    style POP001 fill:#87CEEB
+    style POP002 fill:#87CEEB
+    style POP003 fill:#87CEEB
+    style POP004 fill:#87CEEB
+    style POP005 fill:#87CEEB
+    style POP006 fill:#87CEEB
+    style POP007 fill:#87CEEB
+    style POP008 fill:#87CEEB
+    style POP009 fill:#87CEEB
+    style POP010 fill:#FFD700
+    style POP011 fill:#DDA0DD
+    style IT001 fill:#F0E68C
+    style IT001B fill:#F0E68C
+    style IT002 fill:#F0E68C
+    style IT003 fill:#F0E68C
+    style IT004 fill:#F0E68C
+    style NC001 fill:#FF6B6B
+    style NC002 fill:#FF6B6B
+    style NC003 fill:#FF6B6B
+    style NC004 fill:#FF6B6B
+    style NC005 fill:#FF6B6B
+    style NC007 fill:#FF6B6B
+    style NC007B fill:#FF6B6B
+    style Refugo1 fill:#8B0000,color:#FFF
+    style Refugo2 fill:#8B0000,color:#FFF
+    style Refugo3 fill:#8B0000,color:#FFF
+    style Refugo4 fill:#8B0000,color:#FFF
+    style Retrabalho1 fill:#FFA500
+    style Retrabalho2 fill:#FFA500
+    style Retrabalho3 fill:#FFA500
+    style Retrabalho4 fill:#FFA500
+    style Aprovado fill:#32CD32
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir</button> <!-- Botão imprimir -->
+            <button class="btn btn-secondary" onclick="downloadSVG()">💾 Baixar SVG</button> <!-- Botão download -->
+            <button class="btn btn-secondary" onclick="zoomIn()">🔍 Zoom +</button> <!-- Botão zoom in -->
+            <button class="btn btn-secondary" onclick="zoomOut()">🔍 Zoom -</button> <!-- Botão zoom out -->
+            <button class="btn btn-secondary" onclick="resetZoom()">↺ Resetar Zoom</button> <!-- Botão reset zoom -->
+        </div>
+
+        <div class="footer">
+            <p>© 2025 SelEnergy. | Fluxograma de Produção v1.0</p>
+            <p>Documento gerado automaticamente - Todos os direitos reservados</p>
+        </div>
+    </div>
+
+    <script>
+        // ========================================
+        // CONFIGURAÇÃO DOS CAMINHOS DOS DOCUMENTOS
+        // ========================================
+        // Adicione aqui os caminhos dos seus documentos
+        // Pode ser um caminho local (ex: './documentos/POP-001.pdf')
+        // ou uma URL (ex: 'https://seusite.com/docs/POP-001.pdf')
+        
+        const documentPaths = {
+            // POPs (Procedimentos Operacionais Padrão)
+            'POP001': 'FAB-POP-001_Recebimento_Inspecao.html',
+            'POP002': 'FAB-POP-002_Teste_Celulas_Individuais.html',
+            'POP003': 'FAB-POP-003_Montagem_Pack.html',
+            'POP004': 'FAB-POP-004_Instalacao_BMS.html',
+            'POP005': 'FAB-POP-005_Teste_Ciclo.html',
+            'POP006': 'FAB-POP-006_Instalacao_Gabinete.html',
+            'POP007': 'FAB-POP-007_Teste_Final.html',
+            'POP008': 'FAB-POP-008_Embalagem.html',
+            'POP009': 'FAB-POP-009_Controle_Estoque.html',
+            'POP010': 'FAB-POP-010_Nao_Conformidades.html',
+            'POP011': 'FAB-POP-011_Logistica_Reversa.html',
+            
+            // ITs (Instruções Técnicas)
+            'IT001': 'FAB-IT-001-Operacao Equipamento Teste_Ciclo.HTML',
+            'IT001B': 'FAB-IT-001-Operacao Equipamento Teste_Ciclo.HTML', // Mesmo documento que IT001
+            'IT002': 'FAB-IT-002-Calibracao Instrumentos Medicao.HTML',
+            'IT003': 'FAB-IT-003-Soldagem Busbars.HTML',
+            'IT004': 'FAB-IT-004-Configuracao Software BMS.HTML',
+            
+            // Não Conformidades
+            'NC001': 'FAB-POP-010_Nao_Conformidades.html', // RNC usa POP-010
+            'NC002': 'FAB-POP-010_Nao_Conformidades.html',
+            'NC003': 'FAB-POP-010_Nao_Conformidades.html',
+            'NC004': 'FAB-POP-010_Nao_Conformidades.html',
+            'NC005': 'FAB-POP-010_Nao_Conformidades.html',
+            'NC007': 'FAB-POP-010_Nao_Conformidades.html',
+            'NC007B': 'FAB-POP-010_Nao_Conformidades.html',
+        };
+
+        // Inicializar Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true, // Inicia automaticamente ao carregar
+            theme: 'default', // Tema padrão
+            flowchart: {
+                useMaxWidth: true, // Usa largura máxima
+                htmlLabels: true, // Permite labels HTML
+                curve: 'basis' // Tipo de curva das linhas
+            }
+        });
+
+        // Função para adicionar eventos de clique nos elementos do fluxograma
+        function addClickEvents() {
+            // Aguarda o Mermaid renderizar completamente
+            setTimeout(() => {
+                const nodes = document.querySelectorAll('.node');
+                
+                nodes.forEach(node => {
+                    const nodeId = node.getAttribute('id');
+                    
+                    // Extrai o ID limpo (remove prefixos do Mermaid)
+                    if (nodeId) {
+                        const cleanId = nodeId.replace('flowchart-', '').replace(/-\d+$/, '');
+                        
+                        // Verifica se existe um documento configurado para este elemento
+                        if (documentPaths[cleanId]) {
+                            node.style.cursor = 'pointer';
+                            
+                            // Adiciona evento de clique
+                            node.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                const docPath = documentPaths[cleanId];
+                                
+                                // Abre o documento em uma nova aba
+                                window.open(docPath, '_blank');
+                            });
+                            
+                            // Adiciona tooltip
+                            node.setAttribute('title', 'Clique para abrir o documento');
+                        }
+                    }
+                });
+            }, 1000); // Aguarda 1 segundo para garantir que o Mermaid renderizou
+        }
+
+        // Executa quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            addClickEvents();
+            
+            // Adicionar scroll suave
+            const container = document.querySelector('.diagram-container');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            container.addEventListener('mousedown', (e) => {
+                // Não ativa o drag se clicar em um node
+                if (e.target.closest('.node')) return;
+                
+                isDown = true;
+                container.style.cursor = 'grabbing';
+                startX = e.pageX - container.offsetLeft;
+                scrollLeft = container.scrollLeft;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                isDown = false;
+                container.style.cursor = 'default';
+            });
+
+            container.addEventListener('mouseup', () => {
+                isDown = false;
+                container.style.cursor = 'default';
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const walk = (x - startX) * 2;
+                container.scrollLeft = scrollLeft - walk;
+            });
+        });
+
+        // Controles de zoom
+        let currentZoom = 1; // Nível de zoom atual
+        const diagramContainer = document.querySelector('.diagram-container'); // Seleciona container
+
+        function zoomIn() {
+            currentZoom += 0.1;
+            applyZoom();
+        }
+
+        function zoomOut() {
+            if (currentZoom > 0.3) {
+                currentZoom -= 0.1;
+                applyZoom();
+            }
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            applyZoom();
+        }
+
+        function applyZoom() {
+            const mermaidDiv = document.querySelector('.mermaid');
+            mermaidDiv.style.transform = `scale(${currentZoom})`;
+            mermaidDiv.style.transformOrigin = 'top center';
+        }
+
+        // Download SVG
+        function downloadSVG() {
+            const svg = document.querySelector('.mermaid svg');
+            if (svg) {
+                const serializer = new XMLSerializer();
+                const svgString = serializer.serializeToString(svg);
+                const blob = new Blob([svgString], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'fluxograma_producao_selenergy.svg';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } else {
+                alert('Aguarde o fluxograma carregar completamente antes de baixar.');
+            }
+        }
+    </script>
+</body>
+</html>
