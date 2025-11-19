@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos para Montagem de Baterias Tracionárias no Brasil</title>
+    <style>
+        :root {
+            --primary: #1a5276;
+            --secondary: #2e86c1;
+            --accent: #f39c12;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0DB02B 0%, #ED6E00 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+         .header-logo {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            max-width: 200px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }       
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+        }
+        
+        .highlight {
+            background-color: rgba(46, 134, 193, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--secondary);
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .summary-table th, .summary-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .summary-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .summary-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .step-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+        
+        .step-label {
+            color: var(--dark);
+            font-size: 1rem;
+        }
+        
+        .reference-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .reference-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .reference-list li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        footer {
+             background:linear-gradient(135deg, #0DB02B 0%, #ED6E00 100%);
+            color: rgb(17, 1, 1);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            table, .summary-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+              <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+            <h1>Requisitos para Montagem de Baterias Tracionárias no Brasil</h1>
+            <p class="subtitle">Relatório Técnico - RL-FAB-001</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Resumo Executivo</h2>
+            </div>
+            <p>Este relatório detalha os requisitos legais, técnicos e fiscais para a montagem de baterias de tração de íon-lítio no Brasil. O escopo abrange baterias para veículos industriais como empilhadeiras, veículos autoguiados (AGVs), rebocadores e carrinhos de golfe, com especificações de 24V, 36V e 48V, e capacidades de 50Ah a 460Ah.</p>
+            
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Detalhe</th>
+                        <th>Recomendação/Observação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Normas Técnicas</td>
+                        <td>IEC 60254-1/2, ISO 3691-4, NR-11, NR-12</td>
+                        <td>Foco em segurança e desempenho para propulsão elétrica e veículos industriais</td>
+                    </tr>
+                    <tr>
+                        <td>Regulamentação ANATEL</td>
+                        <td>Res. 715/2019, Ato 3484/2019, Consulta Pública 22/2024</td>
+                        <td>Certificação não é exigida para baterias de uso exclusivo em veículos industriais</td>
+                    </tr>
+                    <tr>
+                        <td>Fiscal (CNAE)</td>
+                        <td>2722-8/01 - Fabricação de baterias e acumuladores para veículos automotores</td>
+                        <td>Inclui fabricação e montagem de baterias elétricas para veículos</td>
+                    </tr>
+                    <tr>
+                        <td>Fiscal (NCM)</td>
+                        <td>8507.60.00 - Acumuladores elétricos de íon de lítio</td>
+                        <td>Define alíquotas de impostos de importação e industrialização</td>
+                    </tr>
+                    <tr>
+                        <td>Ambiental</td>
+                        <td>IBAMA (CTF/APP), CONAMA (Res. 401/2008), Lei 12.305/2010</td>
+                        <td>Obrigatoriedade de inscrição no CTF/APP, implementação de logística reversa e licenciamento ambiental</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Classificação Fiscal e Tributária</h2>
+            </div>
+            
+            <h3>CNAE (Classificação Nacional de Atividades Econômicas)</h3>
+            <div class="highlight">
+                <p><strong>CNAE 2722-8/01</strong> - Fabricação de baterias e acumuladores para veículos automotores</p>
+            </div>
+            
+            <p>O CNAE correto para a montagem de baterias tracionárias é o CNAE 2722-8/01. A justificativa é que veículos industriais como empilhadeiras e AGVs são enquadrados como "veículos automotores" para fins de classificação da atividade industrial.</p>
+            
+            <h4>Atividades Compreendidas:</h4>
+            <ul>
+                <li>Fabricação e montagem de baterias e acumuladores para veículos automotores</li>
+                <li>Fabricação de partes e peças, como placas e separadores</li>
+            </ul>
+            
+            <h4>Regime Tributário:</h4>
+            <p>Esta atividade se enquadra no Anexo II do Simples Nacional, com alíquotas de 4,50% a 12,11%.</p>
+            
+            <div class="highlight">
+                <p><strong>Importante:</strong> Esta atividade NÃO é permitida para Microempreendedor Individual (MEI).</p>
+            </div>
+            
+            <h3>NCM (Nomenclatura Comum do Mercosul)</h3>
+            <div class="highlight">
+                <p><strong>NCM 8507.60.00</strong> - Acumuladores elétricos de íon de lítio</p>
+            </div>
+            
+            <p>Este código define as alíquotas de impostos:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imposto</th>
+                        <th>Alíquota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Imposto de Importação (II)</td>
+                        <td>18%</td>
+                    </tr>
+                    <tr>
+                        <td>IPI</td>
+                        <td>15%</td>
+                    </tr>
+                    <tr>
+                        <td>PIS</td>
+                        <td>2,1%</td>
+                    </tr>
+                    <tr>
+                        <td>COFINS</td>
+                        <td>9,65%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Normas Técnicas Aplicáveis</h2>
+            </div>
+            
+            <p>Para baterias tracionárias, as normas de referência focam em segurança veicular, industrial e de operação:</p>
+            
+            <h3>Normas Internacionais</h3>
+            
+            <div class="highlight">
+                <p><strong>IEC 60254-1 e IEC 60254-2:</strong> Normas internacionais fundamentais para baterias de tração. Embora originalmente escritas para chumbo-ácido, seus princípios de desempenho e segurança são a base para o desenvolvimento de baterias de lítio para a mesma aplicação.</p>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>ISO 3691-4:</strong> Norma de segurança essencial para Veículos Autoguiados (AGVs), cobrindo todos os aspectos do sistema, incluindo a fonte de energia (bateria).</p>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>UN 38.3:</strong> Certificação essencial e obrigatória para o transporte seguro de baterias de lítio, seja por via terrestre, marítima ou aérea.</p>
+            </div>
+            
+            <h3>Normas Regulamentadoras Brasileiras</h3>
+            
+            <div class="highlight">
+                <p><strong>NR-11:</strong> Transporte, Movimentação, Armazenagem e Manuseio de Materiais. Possui diretrizes de segurança para a operação de empilhadeiras, incluindo a recarga e manuseio de suas baterias.</p>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>NR-12:</strong> Segurança no Trabalho em Máquinas e Equipamentos. Aplica-se a todos os veículos industriais.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Regulamentação da ANATEL</h2>
+            </div>
+            
+            <div class="highlight">
+                <p>Para o nicho de baterias tracionárias de uso exclusivo em veículos industriais, a certificação da ANATEL <strong>geralmente não é necessária</strong>.</p>
+            </div>
+            
+            <p>A agência regula produtos que se conectam à rede de telecomunicações. Como as baterias alimentarão equipamentos de movimentação de carga e não equipamentos de telecom, elas saem da esfera de competência da ANATEL.</p>
+            
+            <p>Isso simplifica e barateia o processo de lançamento do produto no mercado, eliminando a necessidade de homologação junto a um Organismo de Certificação Designado (OCD).</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Requisitos Ambientais</h2>
+            </div>
+            
+            <p>Os requisitos ambientais são de alta importância e incluem:</p>
+            
+            <div class="highlight">
+                <p><strong>Cadastro Técnico Federal (CTF/APP):</strong> Inscrição obrigatória no IBAMA para fabricantes de baterias.</p>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>Política Nacional de Resíduos Sólidos (Lei nº 12.305/2010):</strong> Obrigatoriedade de estruturar um sistema de logística reversa para recolhimento e destinação adequada das baterias após o fim da vida útil.</p>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>Licenciamento Ambiental:</strong> Obtenção das licenças (Licença Prévia - LP, Licença de Instalação - LI, Licença de Operação - LO) junto ao órgão ambiental estadual ou municipal competente.</p>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>Resolução CONAMA nº 401/2008:</strong> Estabelece diretrizes para gestão de resíduos de pilhas e baterias.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Conclusão e Próximos Passos</h2>
+            </div>
+            
+            <p>A montagem de baterias tracionárias direciona o negócio para um caminho regulatório focado em normas industriais e de segurança do trabalho, e não em telecomunicações.</p>
+            
+            <h3>Próximos Passos Recomendados:</h3>
+            
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Consultoria Contábil: Confirmar a abertura da empresa sob o CNAE 2722-8/01</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Engenharia de Produto: Desenvolver os packs de bateria em conformidade com as normas IEC 60254, ISO 3691-4 e os requisitos de segurança das NRs 11 e 12</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Certificação de Transporte: Garantir a certificação UN 38.3 para viabilizar a logística de distribuição dos produtos</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Consultoria Ambiental: Manter o foco no licenciamento ambiental e na estruturação do plano de logística reversa</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Referências</h2>
+            </div>
+            
+            <h3>Normas Técnicas e de Segurança</h3>
+            <ul class="reference-list">
+                <li><strong>IEC 60254-1:2005</strong> - Lead-acid traction batteries - Part 1: General requirements and methods of tests. Disponível em: https://webstore.iec.ch/en/publication/1158</li>
+                <li><strong>IEC 60254-2:2008</strong> - Lead-acid traction batteries - Part 2: Dimensions of cells and terminals. Disponível em: https://webstore.iec.ch/en/publication/1159</li>
+                <li><strong>ISO 3691-4:2020</strong> - Industrial trucks - Safety requirements and verification - Part 4: Driverless industrial trucks. Disponível em: https://www.iso.org/standard/72747.html</li>
+                <li><strong>NR-11</strong> - Transporte, Movimentação, Armazenagem e Manuseio de Materiais. Disponível em: https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-11-atualizada-2023.pdf</li>
+                <li><strong>NR-12</strong> - Segurança no Trabalho em Máquinas e Equipamentos. Disponível em: https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-12-atualizada-2022-1.pdf</li>
+                <li><strong>UN 38.3</strong> - Recommendations on the Transport of Dangerous Goods, Manual of Tests and Criteria. Disponível em: https://unece.org/transport/dangerous-goods/un-manual-tests-and-criteria</li>
+            </ul>
+            
+            <h3>Classificação Fiscal (CNAE)</h3>
+            <ul class="reference-list">
+                <li><strong>CNAE 2722-8/01</strong> - Fabricação de baterias e acumuladores para veículos automotores. Disponível em: https://concla.ibge.gov.br/busca-online-cnae.html?subclasse=2722801&view=subclasse</li>
+            </ul>
+            
+            <h3>Classificação Fiscal (NCM)</h3>
+            <ul class="reference-list">
+                <li><strong>NCM 8507.60.00</strong> - Acumuladores elétricos de íon de lítio. Disponível em: https://ncm.fazcomex.com.br/85076000-de-ion-de-litio/</li>
+                <li><strong>NCM 8427</strong> - Empilhadeiras; outros veículos para movimentação de carga e semelhantes. Disponível em: https://www.systax.com.br/classificacaofiscal/ncm/8427-empilhadeiras-outros-veiculos-movimentacao-carga-semelhantes-equipados-dispositivos-elevacao</li>
+            </ul>
+            
+            <h3>Legislação Ambiental</h3>
+            <ul class="reference-list">
+                <li><strong>IBAMA</strong> - Pilhas e baterias - Resolução Conama nº 401/08. Disponível em: https://www.gov.br/ibama/pt-br/assuntos/emissoes-e-residuos/residuos/pilhas-e-baterias</li>
+                <li><strong>Lei Nº 12.305/2010</strong> - Política Nacional de Resíduos Sólidos. Disponível em: http://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12305.htm</li>
+                <li><strong>Resolução CONAMA Nº 401/2008</strong> - Limites de metais pesados em pilhas e baterias</li>
+                <li><strong>Instrução Normativa IBAMA Nº 8/2012</strong> - Procedimentos para controle e destinação de pilhas e baterias</li>
+            </ul>
+            
+            <div class="highlight">
+                <p><strong>Nota:</strong> Todas as referências foram consultadas e verificadas em novembro de 2025. Recomenda-se consultar as versões mais atualizadas dos documentos normativos e regulatórios diretamente nos sites oficiais dos órgãos competentes.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Relatório Técnico: Requisitos para Montagem de Baterias Tracionárias no Brasil</p>
+            <p>Documento: RL-FAB-001</p>
+        </div>
+    </footer>
+</body>
+</html>

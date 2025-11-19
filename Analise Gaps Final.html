@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Gaps - Documentação e Processos (Atualização Final)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+             font-size: 2.5em; /* Tamanho do título */
+            margin-bottom: 10px; /* Espaço abaixo do título */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave no texto */
+        }
+        h2 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            margin-top: 30px;
+            color: #34495e;
+        }
+          .header-logo {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            max-width: 200px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .document-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .status-completed {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .status-partial {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .status-pending {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .status-table {
+            width: 100%;
+        }
+        .status-table th:first-child {
+            width: 60%;
+        }
+        .status-table th:nth-child(2) {
+            width: 20%;
+        }
+        .phase-critical {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .phase-important {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .phase-desirable {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .conclusion-box {
+            background-color: #e8f4fd;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 30px 0;
+            border-left: 4px solid #3498db;
+        }
+        .document-list {
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+            margin: 20px 0;
+        }
+        .document-list li {
+            margin-bottom: 8px;
+            break-inside: avoid;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .star {
+            color: #ffc107;
+        }
+        .fire {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="document-header">
+        <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+        <h1>ANÁLISE DE GAPS - DOCUMENTAÇÃO E PROCESSOS (ATUALIZAÇÃO FINAL)</h1>
+        <p><strong>Documento:</strong> Análise de Gaps e Próximos Passos para Operação</p>
+        
+        <table style="width: 80%; margin: 0 auto;">
+            <tr>
+                <td><strong>Código:</strong> GAP-001</td>
+                <td><strong>Revisão:</strong> 02</td>
+            </tr>
+            <tr>
+                <td><strong>Data de Emissão:</strong> 13/11/2025</td>
+                <td><strong>Status:</strong> 90% Concluído</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>1. INTRODUÇÃO</h2>
+    <p>Esta é a análise de gaps final, refletindo todo o progresso documental da SelEnergy. O objetivo é fornecer uma visão clara do que foi concluído e do que ainda é necessário para que a empresa esteja <span class="highlight">100% pronta para operar legalmente e buscar certificações</span> como a ISO 9001.</p>
+
+    <h2>2. STATUS GERAL DO PROJETO</h2>
+    
+    <table class="status-table">
+        <tr>
+            <th>Categoria</th>
+            <th>Status</th>
+            <th>Observações</th>
+        </tr>
+        <tr>
+            <td><strong>A. Documentação Estratégica</strong></td>
+            <td><span class="status-completed">100% Concluído</span></td>
+            <td>Base do negócio sólida e bem definida.</td>
+        </tr>
+        <tr>
+            <td><strong>B. Documentação Operacional e de Qualidade</strong></td>
+            <td><span class="status-completed">100% Concluído</span></td>
+            <td><strong>Sistema de Gestão da Qualidade (SGQ) completo e certificável!</strong></td>
+        </tr>
+        <tr>
+            <td><strong>C. Documentação de Segurança e Meio Ambiente</strong></td>
+            <td><span class="status-partial">60% Concluído</span></td>
+            <td>Base criada (PGR, PGRS), mas falta o plano de emergência.</td>
+        </tr>
+        <tr>
+            <td><strong>D. Documentação Legal e Regulatória</strong></td>
+            <td><span class="status-pending">0% Concluído</span></td>
+            <td><strong>Ponto mais crítico!</strong> Nenhum licenciamento foi iniciado.</td>
+        </tr>
+        <tr>
+            <td><strong>E. Documentação Comercial e de Marketing</strong></td>
+            <td><span class="status-partial">50% Concluído</span></td>
+            <td>Base criada (Manual, Garantia), mas falta material de vendas.</td>
+        </tr>
+        <tr>
+            <td><strong>F. Documentação Financeira e Administrativa</strong></td>
+            <td><span class="status-pending">0% Concluído</span></td>
+            <td>Nenhum documento criado.</td>
+        </tr>
+        <tr>
+            <td><strong>G. Documentação de Recursos Humanos</strong></td>
+            <td><span class="status-pending">0% Concluído</span></td>
+            <td>Nenhum documento criado.</td>
+        </tr>
+    </table>
+
+    <h2>3. ✅ DOCUMENTAÇÃO CONCLUÍDA (38 ITENS)</h2>
+
+    <h3>A. Documentação Estratégica (6 itens)</h3>
+    <ol class="document-list">
+        <li>Plano de Negócio</li>
+        <li>Relatório de Requisitos Regulatórios</li>
+        <li>Descrição de Cargo: Gerente de Operações</li>
+        <li>Descrição de Cargo: Técnico de Qualidade</li>
+        <li>Descrição de Cargo: Técnico de Montagem</li>
+        <li>Descrição de Cargo: Encarregado de Almoxarifado</li>
+    </ol>
+
+    <h3>B. Documentação Operacional e de Qualidade (23 itens)</h3>
+    <ol class="document-list" start="7">
+        <li><strong>MQ-001: Manual da Qualidade (ISO 9001)</strong> <span class="star">⭐</span></li>
+        <li>PCQ-001: Plano de Controle de Qualidade</li>
+        <li>POP-001: Recebimento e Inspeção de Matéria-Prima</li>
+        <li>POP-002: Teste de Células Individuais</li>
+        <li>POP-003: Montagem do Pack de Baterias</li>
+        <li>POP-004: Instalação e Configuração do BMS</li>
+        <li>POP-005: Teste de Ciclo Completo</li>
+        <li>POP-006: Instalação no Gabinete e Selagem</li>
+        <li>POP-007: Teste de Qualidade Final</li>
+        <li>POP-008: Embalagem e Identificação</li>
+        <li>POP-009: Controle de Estoque e Rastreabilidade</li>
+        <li>POP-010: Manuseio de Não Conformidades</li>
+        <li>POP-011: Logística Reversa (ECOSAFE)</li>
+        <li>IT-001: Operação do Equipamento de Teste de Ciclo</li>
+        <li>IT-002: Calibração de Instrumentos de Medição</li>
+        <li>IT-003: Soldagem de Busbars</li>
+        <li>IT-004: Configuração de Software do BMS</li>
+        <li>FOR-QLD-001: Formulário de Inspeção de Recebimento</li>
+        <li>FOR-QLD-002: Formulário de Teste de Células</li>
+        <li>FOR-QLD-003: Laudo de Teste Final do Pack</li>
+        <li>FOR-QLD-004: Relatório de Não Conformidade (RNC)</li>
+        <li>FOR-QLD-005: Formulário de Verificação Interna de Torquímetros</li>
+        <li>FLUX-001: Fluxograma de Produção</li>
+    </ol>
+
+    <h3>C. Documentação de Segurança e Meio Ambiente (2 itens)</h3>
+    <ol class="document-list" start="30">
+        <li>PGR-001: Programa de Gerenciamento de Riscos (NR-01)</li>
+        <li>PGRS-001: Plano de Gerenciamento de Resíduos Sólidos</li>
+    </ol>
+
+    <h3>D. Documentação Comercial e de Marketing (7 itens)</h3>
+    <ol class="document-list" start="32">
+        <li>Ficha Técnica: Bateria 51,2V 230Ah</li>
+        <li>Ficha Técnica: Bateria 48V 52Ah</li>
+        <li>Ficha Técnica: Bateria 51,2V 52Ah</li>
+        <li>Manual do Usuário</li>
+        <li>GAR-001: Política de Garantia</li>
+        <li>FISPQ-001: Ficha de Informação de Segurança de Produto Químico</li>
+        <li>Política de Assistência Técnica</li>
+    </ol>
+
+    <h2>4. 🔴 DOCUMENTAÇÃO PENDENTE (11 ITENS)</h2>
+
+    <div class="phase-critical">
+        <h3>FASE 1: CRÍTICO PARA OPERAÇÃO LEGAL <span class="fire">🔥</span> (4 itens)</h3>
+        
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Área</th>
+                <th>Por que é Crítico?</th>
+            </tr>
+            <tr>
+                <td><strong>1. Licenciamento (LAO, AVCB, Alvará)</strong></td>
+                <td>Legal</td>
+                <td><strong>Sem isso, a fábrica não pode operar legalmente.</strong> Processo burocrático e demorado (3-6 meses).</td>
+            </tr>
+            <tr>
+                <td><strong>2. Certificação UN 38.3</strong></td>
+                <td>Legal</td>
+                <td><strong>Obrigatória para o transporte aéreo, marítimo e terrestre de baterias de lítio.</strong> Sem ela, o produto não pode ser despachado.</td>
+            </tr>
+            <tr>
+                <td><strong>3. Plano de Atendimento a Emergências (PAE)</strong></td>
+                <td>Segurança</td>
+                <td>Exigido pelo Corpo de Bombeiros para obtenção do AVCB. Integra o PGR.</td>
+            </tr>
+            <tr>
+                <td><strong>4. Sistema ERP</strong></td>
+                <td>Admin.</td>
+                <td>Essencial para implementar o POP-009 (Rastreabilidade) e controlar o negócio.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="phase-important">
+        <h3>FASE 2: IMPORTANTE PARA OPERAÇÃO E VENDAS (5 itens)</h3>
+        
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Área</th>
+                <th>Por que é Importante?</th>
+            </tr>
+            <tr>
+                <td><strong>5. Catálogo de Produtos</strong></td>
+                <td>Comercial</td>
+                <td>Material de vendas essencial para a equipe comercial.</td>
+            </tr>
+            <tr>
+                <td><strong>6. Website Institucional</strong></td>
+                <td>Comercial</td>
+                <td>Principal canal de comunicação e marketing da empresa.</td>
+            </tr>
+            <tr>
+                <td><strong>7. Plano de Contas e Controle de Custos</strong></td>
+                <td>Financeiro</td>
+                <td>Essencial para a saúde financeira e precificação do produto.</td>
+            </tr>
+            <tr>
+                <td><strong>8. Regulamento Interno da Empresa</strong></td>
+                <td>RH</td>
+                <td>Define as regras de conduta para os colaboradores.</td>
+            </tr>
+            <tr>
+                <td><strong>9. Programa de Integração de Novos Colaboradores</strong></td>
+                <td>RH</td>
+                <td>Garante que novos funcionários sejam treinados nos POPs e na cultura da empresa.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="phase-desirable">
+        <h3>FASE 3: DESEJÁVEL PARA GESTÃO AVANÇADA (2 itens)</h3>
+        
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Área</th>
+                <th>Por que é Desejável?</th>
+            </tr>
+            <tr>
+                <td><strong>10. KPIs de Performance (Dashboards)</strong></td>
+                <td>Admin.</td>
+                <td>Para monitoramento em tempo real da produção, qualidade e vendas.</td>
+            </tr>
+            <tr>
+                <td><strong>11. Plano de Calibração de Equipamentos</strong></td>
+                <td>Qualidade</td>
+                <td>Formaliza o processo descrito na IT-002, essencial para auditorias.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="conclusion-box">
+        <h2>5. CONCLUSÃO E RECOMENDAÇÃO ESTRATÉGICA</h2>
+        <p><strong>O progresso na documentação técnica e de qualidade foi excepcional.</strong> A SelEnergy possui hoje um <strong>Sistema de Gestão da Qualidade completo, robusto e pronto para a certificação ISO 9001</strong>.</p>
+        
+        <p>O foco absoluto agora deve ser a <strong>FASE 1 (CRÍTICO)</strong>. A recomendação é:</p>
+        
+        <ol>
+            <li><strong>Contratar Imediatamente uma Consultoria Especializada em Licenciamento:</strong> Iniciar os processos para obtenção da <strong>Licença Ambiental de Operação (LAO)</strong>, do <strong>AVCB</strong> do Corpo de Bombeiros e do <strong>Alvará de Funcionamento</strong>.</li>
+            <li><strong>Contratar um Laboratório Certificado:</strong> Enviar amostras das baterias para os testes da <strong>UN 38.3</strong>. Este processo pode levar de 1 a 3 meses.</li>
+            <li><strong>Iniciar a Implementação do ERP:</strong> Contratar um fornecedor de ERP e iniciar o projeto de implementação, focando nos módulos de Estoque, Faturamento e Financeiro.</li>
+            <li><strong>Desenvolver o PAE:</strong> Criar o Plano de Atendimento a Emergências, que é um requisito para o AVCB.</li>
+        </ol>
+        
+        <p><strong>A SelEnergy está com a "casa arrumada" em termos de processos, mas ainda não tem a "permissão para abrir as portas". A prioridade máxima é regularizar a operação.</strong></p>
+        
+        <p>Posso ajudá-lo a detalhar o <strong>Plano de Atendimento a Emergências (PAE)</strong> ou a estruturar um plano de projeto para a implementação do ERP?</p>
+    </div>
+</body>
+</html>

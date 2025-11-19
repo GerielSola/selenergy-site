@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SelEnergy - Plano de Negócio</title>
+    <style>
+        :root {
+            --primary: #1a5276;
+            --secondary: #2e86c1;
+            --accent: #f39c12;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-header i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+        }
+        
+        .highlight {
+            background-color: rgba(46, 134, 193, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--secondary);
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+        
+        .metric-label {
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 30px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .risk-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--warning);
+        }
+        
+        .risk-high {
+            border-left-color: var(--danger);
+        }
+        
+        .risk-medium {
+            border-left-color: var(--warning);
+        }
+        
+        .risk-low {
+            border-left-color: var(--success);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: var(--dark);
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+            
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .risk-matrix {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SelEnergy</h1>
+            <p class="subtitle">Plano de Negócio - Fábrica de Montagem de Baterias LiFePO4</p>
+            <p>Data: 25 de Outubro de 2025</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Sumário Executivo</h2>
+            </div>
+            <p>A SelEnergy visa implantar uma fábrica de montagem de baterias de Lítio Ferro Fosfato (LiFePO4) no Brasil, capitalizando a crescente demanda por soluções de armazenamento de energia em múltiplos setores.</p>
+            
+            <div class="highlight">
+                <p>O mercado brasileiro de armazenamento de energia está projetado para movimentar R$ 77 bilhões e atingir 72 GWh de capacidade instalada até 2034.</p>
+            </div>
+            
+            <p>A empresa focará inicialmente na montagem de baterias de 24V e 48V de 105Ah a 230Ah, com investimento inicial estimado em R$ 1.550.000,00 e payback estimado em 13 meses.</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Descrição da Empresa</h2>
+            </div>
+            
+            <h3>Dados do Empreendimento</h3>
+            <ul>
+                <li><strong>Nome da Empresa:</strong> Selettra Automação e Robótica Ltda.</li>
+                <li><strong>Marca Comercial:</strong> SelEnergy</li>
+                <li><strong>CNPJ:</strong> 07.781.920/0001-33 (Existente)</li>
+                <li><strong>Endereço:</strong> R. Santa Efigênia, 31 - Roseira | São José dos Pinhais - PR, 83070-200, Brasil</li>
+                <li><strong>Setor de Atividade:</strong> Indústria de Transformação - Montagem de Equipamentos de Armazenamento de Energia</li>
+            </ul>
+            
+            <h3>Missão, Visão e Valores</h3>
+            <div class="highlight">
+                <p><strong>Missão:</strong> Fornecer soluções de armazenamento de energia seguras, confiáveis e de alta performance, impulsionando a transição energética no Brasil com tecnologia de ponta e excelência operacional.</p>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>Visão:</strong> Ser a marca líder e de maior confiança no mercado brasileiro de baterias de Lítio Ferro Fosfato, reconhecida pela qualidade, inovação e compromisso com a sustentabilidade.</p>
+            </div>
+            
+            <h4>Valores:</h4>
+            <div class="tags">
+                <span class="tag">Qualidade</span>
+                <span class="tag">Segurança</span>
+                <span class="tag">Inovação</span>
+                <span class="tag">Sustentabilidade</span>
+                <span class="tag">Foco no Cliente</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Produtos e Serviços</h2>
+            </div>
+            
+            <h3>Bateria LiFePO4 24V/48V (105Ah a 230Ah)</h3>
+            <p>Produto inicial da SelEnergy com componentes de alta qualidade:</p>
+            
+            <ul>
+                <li><strong>Células Prismáticas:</strong> EVE LF230 (Grade A) com ciclo de vida superior a 4.000 ciclos</li>
+                <li><strong>Sistema de Gerenciamento (BMS):</strong> Daly com capacidade de 200A e proteções completas</li>
+                <li><strong>Estrutura:</strong> Gabinete IP63 e busbars de cobre</li>
+            </ul>
+            
+            <h3>Serviços Agregados</h3>
+            <ul>
+                <li>Suporte técnico especializado</li>
+                <li>Dimensionamento de sistemas para clientes</li>
+                <li>Programa de logística reversa (ECOSAFE)</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Mercado e Oportunidade</h2>
+            </div>
+            
+            <div class="metrics">
+                <div class="metric-card">
+                    <div class="metric-value">R$ 77 bi</div>
+                    <div class="metric-label">Projeção de Movimentação até 2034</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">72 GWh</div>
+                    <div class="metric-label">Capacidade Instalada até 2034</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">11% CAGR</div>
+                    <div class="metric-label">Taxa de Crescimento Anual</div>
+                </div>
+            </div>
+            
+            <h3>Segmentos de Mercado</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Segmento</th>
+                        <th>Capacidade (2034)</th>
+                        <th>Movimentação Financeira</th>
+                        <th>Aplicações Principais</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Comercial e Industrial</td>
+                        <td>32 GWh (45%)</td>
+                        <td>R$ 32 bilhões</td>
+                        <td>Gestão de demanda, backup, load shifting</td>
+                    </tr>
+                    <tr>
+                        <td>Reserva de Capacidade</td>
+                        <td>30 GWh (42%)</td>
+                        <td>N/A</td>
+                        <td>Suporte à rede, serviços ancilares</td>
+                    </tr>
+                    <tr>
+                        <td>Off-grid</td>
+                        <td>9,3 GWh (13%)</td>
+                        <td>N/A</td>
+                        <td>Eletrificação rural, agronegócio, sistemas isolados</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Público-Alvo Inicial</h3>
+            <p>A estratégia inicial focará em veículos de manuseio de materiais e logística:</p>
+            <div class="tags">
+                <span class="tag">Rebocadores e Empilhadeiras Elétricas</span>
+                <span class="tag">AGVs (Automated Guided Vehicles)</span>
+                <span class="tag">AMRs (Autonomous Mobile Robots)</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Diferenciais Competitivos</h2>
+            </div>
+            
+            <div class="tags">
+                <span class="tag">Qualidade dos Componentes</span>
+                <span class="tag">Montagem Nacional</span>
+                <span class="tag">Certificações INMETRO/ANATEL</span>
+                <span class="tag">Foco no Cliente</span>
+                <span class="tag">Sustentabilidade</span>
+            </div>
+            
+            <h3>Análise da Concorrência</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Principais Concorrentes</th>
+                        <th>Pontos Fortes</th>
+                        <th>Pontos Fracos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fabricantes Nacionais</td>
+                        <td>Moura, Unipower, Powersafe</td>
+                        <td>Marca consolidada, rede de distribuição</td>
+                        <td>Menor escala de produção</td>
+                    </tr>
+                    <tr>
+                        <td>Montadoras/Integradoras</td>
+                        <td>Diversas empresas de menor porte</td>
+                        <td>Agilidade, flexibilidade</td>
+                        <td>Qualidade variável, falta de padronização</td>
+                    </tr>
+                    <tr>
+                        <td>Players Internacionais</td>
+                        <td>BYD, Eikto Tech, Kingbo Power</td>
+                        <td>Grande escala, tecnologia de ponta</td>
+                        <td>Logística de importação, suporte distante</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Estratégias de Marketing</h2>
+            </div>
+            
+            <h3>Estratégia de Produto</h3>
+            <p>Posicionamento como solução premium no mercado de montagem nacional, baseada em:</p>
+            <ul>
+                <li>Qualidade Superior</li>
+                <li>Marca e Identidade Visual</li>
+                <li>Serviços Agregados</li>
+            </ul>
+            
+            <h3>Estratégia de Preço</h3>
+            <p>Equilíbrio entre competitividade e percepção de valor:</p>
+            <ul>
+                <li>Custo de produção estimado: R$ 4.580 a R$ 7.300 por unidade</li>
+                <li>Preço de varejo no mercado: R$ 9.000 a R$ 15.000</li>
+                <li>Preço para distribuidores/integradores com margens atrativas</li>
+            </ul>
+            
+            <h3>Estratégia de Distribuição</h3>
+            <ul>
+                <li>Parceria com integradores de energia solar</li>
+                <li>Distribuidores especializados</li>
+                <li>Venda direta e e-commerce</li>
+            </ul>
+            
+            <h3>Estratégia de Promoção</h3>
+            <ul>
+                <li>Marketing Digital (website, SEO, conteúdo)</li>
+                <li>Participação em feiras e eventos</li>
+                <li>Assessoria de imprensa</li>
+                <li>Material de vendas de alta qualidade</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Plano Operacional</h2>
+            </div>
+            
+            <h3>Processo Produtivo</h3>
+            <ol>
+                <li>Recebimento e Inspeção de Componentes</li>
+                <li>Balanceamento e Preparação das Células</li>
+                <li>Montagem do Pack</li>
+                <li>Instalação no Gabinete</li>
+                <li>Teste de Qualidade Final</li>
+                <li>Embalagem e Armazenamento</li>
+            </ol>
+            
+            <h3>Capacidade Produtiva</h3>
+            <ul>
+                <li>Primeiro ano: 1.000 a 2.000 unidades</li>
+                <li>Capacidade duplicada a cada ano nos primeiros três anos</li>
+            </ul>
+            
+            <h3>Necessidade de Pessoal</h3>
+            <ul>
+                <li>1 Gerente de Produção</li>
+                <li>4 Técnicos de Montagem</li>
+                <li>1 Técnico de Qualidade</li>
+                <li>1 Encarregado de Almoxarifado/Logística</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Projeções Financeiras</h2>
+            </div>
+            
+            <h3>Investimento Inicial</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Item</th>
+                        <th>Valor Estimado (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3">Investimentos Fixos</td>
+                        <td>Equipamentos da linha de montagem</td>
+                        <td>R$ 350.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Adequação da infraestrutura</td>
+                        <td>R$ 100.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Equipamentos de TI</td>
+                        <td>R$ 50.000,00</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Capital de Giro</td>
+                        <td>Estoque inicial de componentes</td>
+                        <td>R$ 900.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Caixa Mínimo</td>
+                        <td>R$ 100.000,00</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Investimentos Pré-Operacionais</td>
+                        <td>Certificação de produto (INMETRO)</td>
+                        <td>R$ 30.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing de lançamento</td>
+                        <td>R$ 20.000,00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Total do Investimento Inicial</strong></td>
+                        <td><strong>R$ 1.550.000,00</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Projeções (3 Anos)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Ano 1</th>
+                        <th>Ano 2</th>
+                        <th>Ano 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Unidades Vendidas</td>
+                        <td>1.000</td>
+                        <td>2.000</td>
+                        <td>4.000</td>
+                    </tr>
+                    <tr>
+                        <td>Faturamento Bruto</td>
+                        <td>R$ 8.500.000</td>
+                        <td>R$ 17.000.000</td>
+                        <td>R$ 34.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Custo do Produto Vendido (CPV)</td>
+                        <td>R$ 6.000.000</td>
+                        <td>R$ 12.000.000</td>
+                        <td>R$ 24.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Lucro Bruto</td>
+                        <td>R$ 2.500.000</td>
+                        <td>R$ 5.000.000</td>
+                        <td>R$ 10.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Margem Bruta</td>
+                        <td>29,4%</td>
+                        <td>29,4%</td>
+                        <td>29,4%</td>
+                    </tr>
+                    <tr>
+                        <td>Lucro Líquido</td>
+                        <td>R$ 1.412.400</td>
+                        <td>R$ 3.049.200</td>
+                        <td>R$ 6.336.000</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight">
+                <p><strong>Indicadores de Viabilidade:</strong></p>
+                <p><strong>Ponto de Equilíbrio:</strong> 144 unidades/ano</p>
+                <p><strong>Lucratividade (Ano 1):</strong> 16,6%</p>
+                <p><strong>ROI (Ano 1):</strong> 91,1%</p>
+                <p><strong>Payback:</strong> 13 meses</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Análise de Riscos</h2>
+            </div>
+            
+            <div class="risk-matrix">
+                <div class="risk-item risk-high">
+                    <h4>Mercadológico</h4>
+                    <p>Entrada de concorrente internacional com preços agressivos</p>
+                    <p><strong>Mitigação:</strong> Diferenciação por qualidade, suporte técnico local</p>
+                </div>
+                
+                <div class="risk-item risk-high">
+                    <h4>Operacional</h4>
+                    <p>Interrupção na cadeia de suprimentos</p>
+                    <p><strong>Mitigação:</strong> Fornecedores alternativos, estoque de segurança</p>
+                </div>
+                
+                <div class="risk-item risk-medium">
+                    <h4>Financeiro</h4>
+                    <p>Aumento no custo das células devido à flutuação cambial</p>
+                    <p><strong>Mitigação:</strong> Repasse gradual de custos, cláusulas de ajuste</p>
+                </div>
+                
+                <div class="risk-item risk-high">
+                    <h4>Tecnológico</h4>
+                    <p>Surgimento de nova tecnologia que torne LiFePO4 obsoleto</p>
+                    <p><strong>Mitigação:</strong> Monitoramento de mercado, investimento em P&D</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Cronograma de Implantação</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Planejamento e Estruturação</h3>
+                        <p>Detalhamento do projeto, formalização jurídica e captação de recursos</p>
+                        <p><strong>Duração:</strong> 1 mês</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Infraestrutura e Fornecedores</h3>
+                        <p>Adequação da fábrica, compra de equipamentos e negociação com fornecedores</p>
+                        <p><strong>Duração:</strong> 2 meses</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Compras e Recebimento</h3>
+                        <p>Pedido do primeiro lote de componentes, recebimento e inspeção</p>
+                        <p><strong>Duração:</strong> 3 meses</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Contratação e Treinamento</h3>
+                        <p>Recrutamento da equipe de produção e treinamento técnico</p>
+                        <p><strong>Duração:</strong> 2 meses</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Montagem e Certificação</h3>
+                        <p>Montagem dos lotes piloto e submissão para certificação INMETRO</p>
+                        <p><strong>Duração:</strong> 2 meses</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Lançamento e Início da Produção</h3>
+                        <p>Lançamento oficial da marca e início da produção em escala comercial</p>
+                        <p><strong>Duração:</strong> 1 mês</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Conclusão</h2>
+            </div>
+            <p>O projeto de implantação da fábrica de montagem de baterias LiFePO4 da SelEnergy apresenta-se como uma oportunidade de negócio com alto potencial de crescimento e rentabilidade.</p>
+            <p>Com um plano operacional bem estruturado, estratégia de marketing clara e projeções financeiras robustas, a SelEnergy está posicionada para se tornar uma marca de referência no setor de armazenamento de energia no Brasil.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>SelEnergy - Fábrica de Montagem de Baterias LiFePO4</p>
+            <p>R. Santa Efigênia, 31 - Roseira | São José dos Pinhais - PR, 83070-200, Brasil</p>
+            <p>CNPJ: 07.781.920/0001-33</p>
+        </div>
+    </footer>
+</body>
+</html>

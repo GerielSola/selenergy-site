@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxograma de Documentação - SelEnergy</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0db02b 0%, #ed6e00 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .header-logo {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            max-width: 200px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        .status-summary {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .status-summary h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .status-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid;
+        }
+
+        .status-card.completo {
+            border-left-color: #32CD32;
+        }
+
+        .status-card.parcial {
+            border-left-color: #FFD700;
+        }
+
+        .status-card.pendente {
+            border-left-color: #FF6B6B;
+        }
+
+        .status-card.critico {
+            border-left-color: #DC143C;
+            background: #FFF5F5;
+        }
+
+        .status-card h3 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .status-card p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .badge-completo {
+            background: #32CD32;
+            color: white;
+        }
+
+        .badge-parcial {
+            background: #FFD700;
+            color: #333;
+        }
+
+        .badge-pendente {
+            background: #FF6B6B;
+            color: white;
+        }
+
+        .badge-critico {
+            background: #DC143C;
+            color: white;
+        }
+
+        .legend {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .legend h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+
+        .legend-text {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .diagram-container {
+            padding: 40px;
+            background: white;
+            overflow-x: auto;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+
+        .node rect, .node polygon, .node circle, .node ellipse {
+            cursor: pointer;
+        }
+
+        .node:hover rect, .node:hover polygon {
+            filter: brightness(0.9);
+            stroke-width: 3px;
+        }
+
+        .controls {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background:linear-gradient(135deg, #0DB02B 0%, #ED6E00 100%);
+            color: rgb(17, 1, 1);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .controls,
+            .footer {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .legend-grid,
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .diagram-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+            <h1>📋 Fluxograma de Documentação</h1>
+            <p>SelEnergy - Sistema de Gestão Documental</p>
+        </div>
+
+        <div class="status-summary">
+            <h2>📊 Status Geral do Projeto</h2>
+            <div class="status-grid">
+                <div class="status-card completo">
+                    <h3>Documentação Estratégica</h3>
+                    <p>Base do negócio sólida e bem definida</p>
+                    <span class="status-badge badge-completo">✅ 100% Concluído</span>
+                </div>
+                <div class="status-card completo">
+                    <h3>Documentação Operacional e Qualidade</h3>
+                    <p>SGQ completo e certificável ISO 9001</p>
+                    <span class="status-badge badge-completo">✅ 100% Concluído</span>
+                </div>
+                <div class="status-card parcial">
+                    <h3>Segurança e Meio Ambiente</h3>
+                    <p>Base criada (PGR, PGRS), falta PAE</p>
+                    <span class="status-badge badge-parcial">🟡 60% Concluído</span>
+                </div>
+                <div class="status-card critico">
+                    <h3>Documentação Legal e Regulatória</h3>
+                    <p>Nenhum licenciamento iniciado</p>
+                    <span class="status-badge badge-critico">🔥 0% - CRÍTICO</span>
+                </div>
+                <div class="status-card parcial">
+                    <h3>Comercial e Marketing</h3>
+                    <p>Base criada, falta material de vendas</p>
+                    <span class="status-badge badge-parcial">🟡 50% Concluído</span>
+                </div>
+                <div class="status-card pendente">
+                    <h3>Financeiro e Administrativo</h3>
+                    <p>Nenhum documento criado</p>
+                    <span class="status-badge badge-pendente">🔴 0% Concluído</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <h2>🎨 Legenda de Cores</h2>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #90EE90;"></div>
+                    <span class="legend-text">✅ Concluído (100%)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FFD700;"></div>
+                    <span class="legend-text">🟡 Parcialmente Concluído (50-90%)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FF6B6B;"></div>
+                    <span class="legend-text">🔴 Pendente (0-50%)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #DC143C;"></div>
+                    <span class="legend-text">🔥 Crítico e Pendente</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #87CEEB;"></div>
+                    <span class="legend-text">📄 Documentos Principais</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #DDA0DD;"></div>
+                    <span class="legend-text">📂 Categorias de Documentos</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TD
+    Start --> Gaps[Analise de Documentos]
+    Start([01 - Plano de Negócio]) --> Relatorios[02 - Relatórios]
+    Start --> Cargos[03 - Descrição de Cargo]
+    
+    Start --> ManualQualidade[06 - Manual da Qualidade]
+    ManualQualidade --> PlanoControle[08 - Plano de Controle<br/>de Qualidade]
+    
+    PlanoControle --> POPs[04 - POPs<br/>Procedimentos Operacionais]
+    PlanoControle --> ITs[05 - ITs<br/>Instruções Técnicas]
+    
+    POPs --> FichaTecnica[07 - Ficha Técnica<br/>Produtos]
+    ITs --> FluxoProd[22 - Fluxograma<br/>de Produção]
+    
+    FichaTecnica --> DocSeguranca[09 - Documento de<br/>Segurança e Meio Ambiente]
+    FluxoProd --> DocSeguranca
+    
+    DocSeguranca --> PGRS[10 - Plano de Gerenciamento<br/>de Resíduos Sólidos]
+    DocSeguranca --> FISPQ[11 - FISPQ<br/>Ficha Segurança Produto]
+    DocSeguranca --> PlanoEmerg[12 - Plano de Emergência<br/>e Combate a Incêndio]
+    
+    PGRS --> DocLegal[13 - Documentação Legal<br/>e Regulatória<br/>LAO, AVCB, Alvará, UN38.3]
+    FISPQ --> DocLegal
+    PlanoEmerg --> DocLegal
+    
+    DocLegal --> Certificacoes[14 - Certificações<br/>de Produto]
+    
+    Certificacoes --> ContratoForn[15 - Contrato<br/>Fornecedor]
+    Certificacoes --> DocComercial[16 - Documentos Comercial<br/>e Marketing]
+    
+    ContratoForn --> ManualUsuario[17 - Manual do Usuário]
+    DocComercial --> Garantia[18 - Política de Garantia<br/>e Assistência Técnica]
+    
+    ManualUsuario --> ControleCustos[19 - Controle de Custos<br/>e Precificação]
+    Garantia --> PlanoTreinamento[20 - Plano de<br/>Treinamento]
+    
+    ControleCustos --> KPIs[21 - Indicadores de<br/>Desempenho KPIs]
+    PlanoTreinamento --> KPIs
+    
+    KPIs --> Ferramentas[200 - Ferramentas<br/>Formulários e Suporte]
+    
+    Ferramentas --> End([Sistema Documental<br/>Completo])
+    
+    style Start fill:#87CEEB,stroke:#333,stroke-width:3px
+    style End fill:#32CD32,stroke:#333,stroke-width:3px
+    
+    style Relatorios fill:#90EE90
+    style Cargos fill:#90EE90
+    style ManualQualidade fill:#90EE90
+    style PlanoControle fill:#90EE90
+    style POPs fill:#90EE90
+    style ITs fill:#90EE90
+    style FichaTecnica fill:#90EE90
+    style FluxoProd fill:#90EE90
+    style DocSeguranca fill:#FFD700
+    style PGRS fill:#90EE90
+    style FISPQ fill:#90EE90
+    style PlanoEmerg fill:#FF6B6B
+    style DocLegal fill:#DC143C,color:#FFF
+    style Certificacoes fill:#FF6B6B
+    style ContratoForn fill:#FF6B6B
+    style DocComercial fill:#FF6B6B
+    style ManualUsuario fill:#90EE90
+    style Garantia fill:#90EE90
+    style ControleCustos fill:#FF6B6B
+    style PlanoTreinamento fill:#FF6B6B
+    style KPIs fill:#FF6B6B
+    style Ferramentas fill:#90EE90
+    style Gaps fill:#90EE90
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir</button>
+            <button class="btn btn-secondary" onclick="downloadSVG()">💾 Baixar SVG</button>
+            <button class="btn btn-secondary" onclick="zoomIn()">🔍 Zoom +</button>
+            <button class="btn btn-secondary" onclick="zoomOut()">🔍 Zoom -</button>
+            <button class="btn btn-secondary" onclick="resetZoom()">↺ Resetar Zoom</button>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 SelEnergy | Sistema de Gestão Documental v1.0</p>
+            <p>38 documentos concluídos | 11 documentos pendentes | Total: 49 documentos</p>
+        </div>
+    </div>
+
+    <script>
+        // ========================================
+        // CONFIGURAÇÃO DOS CAMINHOS DOS DOCUMENTOS
+        // ========================================
+        const documentPaths = {
+            // Documentação Estratégica
+            'Start': 'Plano de Negócio.html',
+            'Relatorios': 'RL-FAB-001-Requisitos para Montagem de Baterias no Brasil.html',
+            'Cargos': './documentos/03-Descricao-de-Cargo/',
+            'Gaps':'Analise Gaps Final.html',
+            
+            // Documentação de Qualidade
+            'ManualQualidade': 'Manual_Qualidade.html',
+            'PlanoControle': 'Plano de Controle de Qualidade.html',
+            'POPs': './documentos/04-POPs/',
+            'ITs': './documentos/05-ITs/',
+            
+            // Documentação Técnica
+            'FichaTecnica': './documentos/07-Ficha-Tecnica/',
+            'FluxoProd': '22 - fluxograma de produção\fluxograma_interativo.html',
+            
+            // Segurança e Meio Ambiente
+            'DocSeguranca': 'Analise_Risco_PGR.html',
+            'PGRS': 'PGRS.html',
+            'FISPQ': 'FISPQ.HTML',
+            'PlanoEmerg': 'PAE.HTML',
+            
+            // Legal e Regulatório
+            'DocLegal': './documentos/13-Documentacao-Legal-Regulatoria/',
+            'Certificacoes': './documentos/14-Certificacoes-Produto/',
+            
+            // Comercial
+            'ContratoForn': './documentos/15-Contrato-Fornecedor/',
+            'DocComercial': './documentos/16-Documentos-Comercial-Marketing/',
+            'ManualUsuario': 'Manual Usuario.HTML',
+            'Garantia': 'Politica Assistencia Tecnica.html',
+            
+            // Financeiro e Administrativo
+            'ControleCustos': './documentos/19-Controle-Custos-Precificacao/',
+            'PlanoTreinamento': './documentos/20-Plano-Treinamento/',
+            'KPIs': './documentos/21-Indicadores-Desempenho-KPIs/',
+            
+            // FerramentasS
+            'Ferramentas': './documentos/200-Ferramentas/',
+        };
+
+        // Inicializar Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+
+        // Função para adicionar eventos de clique
+        function addClickEvents() {
+            setTimeout(() => {
+                const nodes = document.querySelectorAll('.node');
+                
+                nodes.forEach(node => {
+                    const nodeId = node.getAttribute('id');
+                    
+                    if (nodeId) {
+                        const cleanId = nodeId.replace('flowchart-', '').replace(/-\d+$/, '');
+                        
+                        if (documentPaths[cleanId]) {
+                            node.style.cursor = 'pointer';
+                            
+                            node.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                const docPath = documentPaths[cleanId];
+                                window.open(docPath, '_blank');
+                            });
+                            
+                            node.setAttribute('title', 'Clique para abrir o documento');
+                        }
+                    }
+                });
+            }, 1000);
+        }
+
+        // Executa quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            addClickEvents();
+            
+            const container = document.querySelector('.diagram-container');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            container.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.node')) return;
+                
+                isDown = true;
+                container.style.cursor = 'grabbing';
+                startX = e.pageX - container.offsetLeft;
+                scrollLeft = container.scrollLeft;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                isDown = false;
+                container.style.cursor = 'default';
+            });
+
+            container.addEventListener('mouseup', () => {
+                isDown = false;
+                container.style.cursor = 'default';
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const walk = (x - startX) * 2;
+                container.scrollLeft = scrollLeft - walk;
+            });
+        });
+
+        // Controles de zoom
+        let currentZoom = 1;
+        const diagramContainer = document.querySelector('.diagram-container');
+
+        function zoomIn() {
+            currentZoom += 0.1;
+            applyZoom();
+        }
+
+        function zoomOut() {
+            if (currentZoom > 0.3) {
+                currentZoom -= 0.1;
+                applyZoom();
+            }
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            applyZoom();
+        }
+
+        function applyZoom() {
+            const mermaidDiv = document.querySelector('.mermaid');
+            mermaidDiv.style.transform = `scale(${currentZoom})`;
+            mermaidDiv.style.transformOrigin = 'top center';
+        }
+
+        // Download SVG
+        function downloadSVG() {
+            const svg = document.querySelector('.mermaid svg');
+            if (svg) {
+                const serializer = new XMLSerializer();
+                const svgString = serializer.serializeToString(svg);
+                const blob = new Blob([svgString], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'fluxograma_documentacao_selenergy.svg';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } else {
+                alert('Aguarde o fluxograma carregar completamente antes de baixar.');
+            }
+        }
+    </script>
+</body>
+</html>

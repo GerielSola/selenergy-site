@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Documentação Técnica - SelEnergy</title>
+    <style>
+        :root {
+            --primary: #1a5276;
+            --secondary: #2e86c1;
+            --accent: #f39c12;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --danger: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .section-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: var(--secondary);
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.6rem;
+        }
+        
+        .doc-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .doc-item {
+            padding: 15px;
+            margin-bottom: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .doc-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .doc-title {
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .doc-path {
+            color: #666;
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
+            background: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
+        .doc-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .doc-link:hover {
+            background: var(--primary);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: var(--success);
+            color: white;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .status-warning {
+            background: var(--warning);
+        }
+        
+        .status-danger {
+            background: var(--danger);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: var(--dark);
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .section-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sistema de Documentação Técnica</h1>
+            <p class="subtitle">SelEnergy - Fábrica de Baterias LiFePO4</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-grid">
+            <!-- Documentação Técnica -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">📋</div>
+                    <h2>Documentação Técnica</h2>
+                </div>
+                <ul class="doc-list">
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Ficha Técnica
+                            <span class="status-badge">Atualizado</span>
+                        </div>
+                        <p>Documento com especificações técnicas completas dos produtos</p>
+                        <div class="doc-path">./documentos/07-Ficha-Tecnica/</div>
+                        <a href="#" class="doc-link">Acessar Documento</a>
+                    </li>
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Fluxograma de Produção
+                            <span class="status-badge status-warning">Revisão Pendente</span>
+                        </div>
+                        <p>Diagrama interativo do processo produtivo</p>
+                        <div class="doc-path">C:\Users\GerielSola\OneDrive - selettra.com.br\Fabrica - Documentos\General\3@ P&D\@5 - Baterias\@1 - Fabrica de bateria\22 - fluxograma de produfdo\fluxograma_interativo.html</div>
+                        <a href="#" class="doc-link">Visualizar Fluxograma</a>
+                    </li>
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Manual de Operação
+                            <span class="status-badge">Atualizado</span>
+                        </div>
+                        <p>Instruções detalhadas para operação dos equipamentos</p>
+                        <div class="doc-path">./documentos/04-Manual-Operacao/</div>
+                        <a href="#" class="doc-link">Acessar Manual</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Segurança e Meio Ambiente -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">🛡️</div>
+                    <h2>Segurança e Meio Ambiente</h2>
+                </div>
+                <ul class="doc-list">
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Procedimento de Segurança
+                            <span class="status-badge">Atualizado</span>
+                        </div>
+                        <p>Normas e procedimentos de segurança na fábrica</p>
+                        <div class="doc-path">./documentos/05-Seguranca/</div>
+                        <a href="#" class="doc-link">Acessar Procedimentos</a>
+                    </li>
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Plano de Emergência
+                            <span class="status-badge status-warning">Revisão Pendente</span>
+                        </div>
+                        <p>Procedimentos para situações de emergência</p>
+                        <div class="doc-path">./documentos/06-Emergencia/</div>
+                        <a href="#" class="doc-link">Acessar Plano</a>
+                    </li>
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Gestão Ambiental
+                            <span class="status-badge">Atualizado</span>
+                        </div>
+                        <p>Políticas e procedimentos ambientais</p>
+                        <div class="doc-path">./documentos/08-Ambiental/</div>
+                        <a href="#" class="doc-link">Acessar Documentos</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Qualidade e Controle -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">⭐</div>
+                    <h2>Qualidade e Controle</h2>
+                </div>
+                <ul class="doc-list">
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Manual da Qualidade
+                            <span class="status-badge">Atualizado</span>
+                        </div>
+                        <p>Sistema de Gestão da Qualidade - ISO 9001</p>
+                        <div class="doc-path">./documentos/01-Qualidade/</div>
+                        <a href="#" class="doc-link">Acessar Manual</a>
+                    </li>
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Procedimentos de Controle
+                            <span class="status-badge">Atualizado</span>
+                        </div>
+                        <p>POPs - Procedimentos Operacionais Padrão</p>
+                        <div class="doc-path">./documentos/02-POPs/</div>
+                        <a href="#" class="doc-link">Acessar POPs</a>
+                    </li>
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Registros de Qualidade
+                            <span class="status-badge status-danger">Atrasado</span>
+                        </div>
+                        <p>Formulários e registros do controle de qualidade</p>
+                        <div class="doc-path">./documentos/03-Registros/</div>
+                        <a href="#" class="doc-link">Acessar Registros</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- P&D e Inovação -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">🔬</div>
+                    <h2>P&D e Inovação</h2>
+                </div>
+                <ul class="doc-list">
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Projetos em Andamento
+                        </div>
+                        <p>Status e documentação dos projetos de P&D</p>
+                        <div class="doc-path">./documentos/09-P&D/</div>
+                        <a href="#" class="doc-link">Acessar Projetos</a>
+                    </li>
+                    <li class="doc-item">
+                        <div class="doc-title">
+                            Relatórios Técnicos
+                        </div>
+                        <p>Estudos e análises técnicas</p>
+                        <div class="doc-path">./documentos/10-Relatorios/</div>
+                        <a href="#" class="doc-link">Acessar Relatórios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <h2>Status do Sistema</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                <div style="text-align: center; padding: 15px; background: #e8f5e8; border-radius: 6px;">
+                    <div style="font-size: 2rem; color: var(--success);">12</div>
+                    <div>Documentos Atualizados</div>
+                </div>
+                <div style="text-align: center; padding: 15px; background: #fff3cd; border-radius: 6px;">
+                    <div style="font-size: 2rem; color: var(--warning);">3</div>
+                    <div>Revisão Pendente</div>
+                </div>
+                <div style="text-align: center; padding: 15px; background: #f8d7da; border-radius: 6px;">
+                    <div style="font-size: 2rem; color: var(--danger);">1</div>
+                    <div>Atrasados</div>
+                </div>
+                <div style="text-align: center; padding: 15px; background: #cce7ff; border-radius: 6px;">
+                    <div style="font-size: 2rem; color: var(--secondary);">16</div>
+                    <div>Total de Documentos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Sistema de Documentação Técnica - SelEnergy</p>
+            <p>Última atualização: Novembro 2025 | Versão 2.1</p>
+        </div>
+    </footer>
+</body>
+</html>

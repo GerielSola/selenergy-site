@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Gerenciamento de Riscos (PGR) - SelEnergy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;/* Fonte padrão */
+             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);/* Fundo com degradê laranja */
+            min-height: 100vh;/* Altura mínima ocupa toda a tela */
+            padding: 20px;/* Espaçamento interno */
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0DB02B, #ED6E00);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .company-info {
+            margin-top: 15px;
+            font-size: 16px;
+        }
+        
+        .document-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .header-logo {
+            position: absolute;
+            left: 160px;
+            top: 30px;
+            max-width: 200px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        .info-item {
+            flex: 1;
+            min-width: 200px;
+            margin: 5px;
+        }
+        
+        .info-item strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #ecf0f1;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        h2 {
+            color: #002df8;
+            border-bottom: 2px solid #002df8;
+            padding-bottom: 10px;
+            margin: 30px 0 20px;
+        }
+        
+        h3 {
+            color: #002df8;
+            margin: 25px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #002df8;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #f1f8ff;
+        }
+        
+        .risk-low {
+            background-color: #d4edda;
+        }
+        
+        .risk-medium {
+            background-color: #fff3cd;
+        }
+        
+        .risk-high {
+            background-color: #f8d7da;
+        }
+        
+        .signatures {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .signature-box {
+            text-align: center;
+            width: 40%;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            padding-top: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ecf0f1;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .emergency-section {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .emergency-section h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        
+        .emergency-section ul {
+            margin-left: 20px;
+        }
+        
+        .emergency-section li {
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .document-info {
+                flex-direction: column;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .signatures {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .signature-box {
+                width: 80%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+            <h1>PROGRAMA DE GERENCIAMENTO DE RISCOS (PGR)</h1>
+            <div class="company-info">
+                <p><strong>Empresa:</strong> SelEnergy</p>
+                <p><strong>Atividade:</strong> Montagem de baterias de Lítio Ferro Fosfato (LiFePO4) a células prismáticas de diversas capacidades elétricas</p>
+                <p><strong>CNAE:</strong> 2722-8/01 - Fabricação de baterias e acumuladores para veículos automotores</p>
+            </div>
+            
+            <div class="document-info">
+                <div class="info-item">
+                    <strong>Código:</strong> PGR-001
+                </div>
+                <div class="info-item">
+                    <strong>Revisão:</strong> 00
+                </div>
+                <div class="info-item">
+                    <strong>Data de Emissão:</strong> 12/11/2025
+                </div>
+                <div class="info-item">
+                    <strong>Validade:</strong> x anos
+                </div>
+                <div class="info-item">
+                    <strong>Responsável Técnico:</strong> (Nome do Engenheiro de Segurança do Trabalho)
+                </div>
+                <div class="info-item">
+                    <strong>CREA:</strong> (Número do CREA)
+                </div>
+            </div>
+        </header>
+        
+        <div class="content">
+            <section id="introducao">
+                <h2>1. INTRODUÇÃO</h2>
+                <p>Este Programa de Gerenciamento de Riscos (PGR) é elaborado em conformidade com a Norma Regulamentadora Nº 01 (NR-01) do Ministério do Trabalho e Previdência. Seu objetivo é estabelecer as diretrizes e os procedimentos para a identificação de perigos, avaliação de riscos e implementação de medidas de controle no ambiente de trabalho da SelEnergy, visando a prevenção de acidentes e doenças ocupacionais no processo de montagem de baterias de Lítio Ferro Fosfato (LiFePO4).</p>
+            </section>
+            
+            <section id="inventario-riscos">
+                <h2>2. INVENTÁRIO DE RISCOS OCUPACIONAIS</h2>
+                <p>A seguir, são identificados os perigos e avaliados os riscos associados a cada etapa do processo produtivo.</p>
+                
+                <p><strong>Metodologia de Avaliação de Risco:</strong></p>
+                <ul>
+                    <li><strong>Probabilidade (P):</strong> A chance de o evento perigoso ocorrer (1-Rara, 2-Possível, 3-Provável)</li>
+                    <li><strong>Severidade (S):</strong> A magnitude do dano caso o evento ocorra (1-Leve, 2-Moderada, 3-Severa)</li>
+                    <li><strong>Nível de Risco (NR) = P x S:</strong> (1-3: Baixo, 4-6: Médio, 7-9: Alto)</li>
+                </ul>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Etapa do Processo</th>
+                            <th>Perigo Identificado</th>
+                            <th>Risco Associado</th>
+                            <th>P</th>
+                            <th>S</th>
+                            <th>NR</th>
+                            <th>Medidas de Controle Propostas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="risk-medium">
+                            <td rowspan="2">Recebimento e Almoxarifado</td>
+                            <td>Manuseio de caixas pesadas</td>
+                            <td>Lesões ergonômicas (lombalgia)</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>Treinamento de levantamento de peso, uso de paleteiras</td>
+                        </tr>
+                        <tr class="risk-low">
+                            <td>Queda de caixas</td>
+                            <td>Contusões, escoriações</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>Armazenamento em prateleiras adequadas, uso de EPIs</td>
+                        </tr>
+                        <tr class="risk-medium">
+                            <td rowspan="2">Teste de Células</td>
+                            <td>Contato com terminais energizados</td>
+                            <td>Choque elétrico de baixa tensão</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>Uso de luvas isolantes, bancadas aterradas</td>
+                        </tr>
+                        <tr class="risk-low">
+                            <td>Curto-circuito acidental</td>
+                            <td>Fuga térmica, incêndio, explosão</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>Procedimentos rigorosos (POP-002), ferramentas isoladas</td>
+                        </tr>
+                        <tr class="risk-medium">
+                            <td rowspan="3">Montagem do Pack</td>
+                            <td>Contato com barramentos energizados</td>
+                            <td>Choque elétrico de alta tensão (até 60V DC)</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>6</td>
+                            <td>NR-10, luvas isolantes classe 00, ferramentas isoladas</td>
+                        </tr>
+                        <tr class="risk-medium">
+                            <td>Torqueamento inadequado</td>
+                            <td>Superaquecimento do terminal, incêndio</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>6</td>
+                            <td>Uso de torquímetro calibrado (IT-002), inspeção 100%</td>
+                        </tr>
+                        <tr class="risk-medium">
+                            <td>Soldagem a Laser (IT-003)</td>
+                            <td>Queimaduras, danos à visão, fumos metálicos</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>6</td>
+                            <td>Cabine enclausurada, óculos de proteção específicos, exaustão</td>
+                        </tr>
+                        <tr class="risk-low">
+                            <td>Teste Final (HiPot)</td>
+                            <td>Contato com alta tensão (500V AC)</td>
+                            <td>Choque elétrico fatal</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>Área de teste isolada, gaiola de segurança, treinamento específico</td>
+                        </tr>
+                        <tr class="risk-medium">
+                            <td>Logística Reversa</td>
+                            <td>Manuseio de baterias danificadas</td>
+                            <td>Incêndio, explosão, vazamento químico</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>6</td>
+                            <td>Procedimento rigoroso (POP-011), EPIs completos, descarga de segurança</td>
+                        </tr>
+                        <tr class="risk-low">
+                            <td>Todas as Etapas</td>
+                            <td>Incêndio com baterias de lítio</td>
+                            <td>Queimaduras graves, intoxicação por fumaça</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>Extintores Classe D, brigada de incêndio treinada, detectores de fumaça</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="plano-acao">
+                <h2>3. PLANO DE AÇÃO</h2>
+                <p>Com base no inventário de riscos, o seguinte plano de ação será implementado para mitigar os riscos de nível <strong>Médio</strong> e <strong>Alto</strong>.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Risco</th>
+                            <th>Medida de Controle</th>
+                            <th>Responsável</th>
+                            <th>Prazo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Choque Elétrico (Alta Tensão)</td>
+                            <td>Implementar todos os requisitos da NR-10</td>
+                            <td>Gerente de operações</td>
+                            <td>90 dias</td>
+                        </tr>
+                        <tr>
+                            <td>Choque Elétrico (Alta Tensão)</td>
+                            <td>Fornecer ferramentas isoladas VDE 1000V</td>
+                            <td>Compras</td>
+                            <td>30 dias</td>
+                        </tr>
+                        <tr>
+                            <td>Superaquecimento por Torque</td>
+                            <td>Garantir calibração semestral dos torquímetros (IT-002)</td>
+                            <td>Técnico de Qualidade</td>
+                            <td>Contínuo</td>
+                        </tr>
+                        <tr>
+                            <td>Riscos da Solda a Laser</td>
+                            <td>Instalar sistema de exaustão e enclausuramento</td>
+                            <td>Gerente de Operações</td>
+                            <td>60 dias</td>
+                        </tr>
+                        <tr>
+                            <td>Riscos da Solda a Laser</td>
+                            <td>Fornecer EPIs específicos para o operador</td>
+                            <td>Compras</td>
+                            <td>30 dias</td>
+                        </tr>
+                        <tr>
+                            <td>Manuseio de Baterias Usadas</td>
+                            <td>Construir área de armazenamento com contenção</td>
+                            <td>Gerente de Operações</td>
+                            <td>45 dias</td>
+                        </tr>
+                        <tr>
+                            <td>Manuseio de Baterias Usadas</td>
+                            <td>Adquirir contentores homologados para transporte</td>
+                            <td>Compras</td>
+                            <td>60 dias</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="epis">
+                <h2>4. EQUIPAMENTOS DE PROTEÇÃO INDIVIDUAL (EPIs)</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Função</th>
+                            <th>EPIs Obrigatórios</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Técnico de Montagem</td>
+                            <td>
+                                <ul>
+                                    <li>Óculos de proteção</li>
+                                    <li>Luvas isolantes Classe 00 (para 500V AC / 750V DC)</li>
+                                    <li>Calçado de segurança com biqueira de composite</li>
+                                    <li>Vestimenta de trabalho antiestática</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Técnico de Qualidade</td>
+                            <td>
+                                <ul>
+                                    <li>Óculos de proteção</li>
+                                    <li>Luvas isolantes Classe 00</li>
+                                    <li>Jaleco antiestático</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Encarregado de Almoxarifado</td>
+                            <td>
+                                <ul>
+                                    <li>Óculos de proteção</li>
+                                    <li>Luvas de vaqueta</li>
+                                    <li>Calçado de segurança com biqueira de aço</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="treinamentos">
+                <h2>5. TREINAMENTOS DE SEGURANÇA OBRIGATÓRIOS</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Treinamento</th>
+                            <th>Norma de Referência</th>
+                            <th>Carga Horária</th>
+                            <th>Público-Alvo</th>
+                            <th>Reciclagem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>NR-10 Básico</td>
+                            <td>NR-10</td>
+                            <td>40 horas</td>
+                            <td>Técnicos de Montagem e Qualidade</td>
+                            <td>A cada 2 anos</td>
+                        </tr>
+                        <tr>
+                            <td>NR-11: Operação de Paleteira</td>
+                            <td>NR-11</td>
+                            <td>8 horas</td>
+                            <td>Almoxarifado</td>
+                            <td>A cada 2 anos</td>
+                        </tr>
+                        <tr>
+                            <td>NR-12: Segurança em Máquinas</td>
+                            <td>NR-12</td>
+                            <td>8 horas</td>
+                            <td>Técnicos de Montagem (Solda Laser)</td>
+                            <td>Anual</td>
+                        </tr>
+                        <tr>
+                            <td>Prevenção e Combate a Incêndio (Classe D)</td>
+                            <td>NBR 14276</td>
+                            <td>16 horas</td>
+                            <td>Brigada de Incêndio</td>
+                            <td>Anual</td>
+                        </tr>
+                        <tr>
+                            <td>Manuseio de Produtos Químicos (Eletrólito)</td>
+                            <td>NR-26</td>
+                            <td>4 horas</td>
+                            <td>Todos os colaboradores da produção</td>
+                            <td>Anual</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="emergencia">
+                <h2>6. PROCEDIMENTOS DE EMERGÊNCIA</h2>
+                
+                <div class="emergency-section">
+                    <h3>Em caso de princípio de incêndio em bateria:</h3>
+                    <ul>
+                        <li>Acionar o alarme de incêndio</li>
+                        <li>Utilizar <strong>APENAS</strong> extintores Classe D (para metais combustíveis)</li>
+                        <li>Evacuar a área</li>
+                        <li><strong>NUNCA USE ÁGUA</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="emergency-section">
+                    <h3>Em caso de choque elétrico:</h3>
+                    <ul>
+                        <li>Desligar a fonte de energia antes de tocar na vítima</li>
+                        <li>Prestar os primeiros socorros e chamar o serviço de emergência (192)</li>
+                    </ul>
+                </div>
+                
+                <div class="emergency-section">
+                    <h3>Em caso de vazamento de eletrólito:</h3>
+                    <ul>
+                        <li>Isolar a área</li>
+                        <li>Utilizar kit de contenção de derramamento (vermiculita)</li>
+                        <li>Ventilar o ambiente</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="revisao">
+                <h2>7. REVISÃO DO PGR</h2>
+                <p>Este PGR será revisado a cada 2 anos, ou sempre que ocorrerem mudanças significativas no processo, acidentes ou incidentes relevantes.</p>
+            </section>
+            
+            <section id="assinaturas">
+                <h2>Assinaturas</h2>
+                
+                <div class="signatures">
+                    <div class="signature-box">
+                        <p><strong>Responsável Técnico (Eng. de Segurança):</strong></p>
+                        <div class="signature-line"></div>
+                        <p>(Nome/CREA)</p>
+                    </div>
+                    
+                    <div class="signature-box">
+                        <p><strong>Responsável pela Empresa:</strong></p>
+                        <div class="signature-line"></div>
+                        <p>(Nome/Cargo)</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>Programa de Gerenciamento de Riscos (PGR) - SelEnergy | PGR-001 | Revisão 00</p>
+        </footer>
+    </div>
+</body>
+</html>

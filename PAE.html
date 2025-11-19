@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLANO DE ATENDIMENTO A EMERGÊNCIAS (PAE) - SELENERGY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .header-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .warning-box {
+            background-color: #ffeaa7;
+            border: 1px solid #fdcb6e;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        .procedure-box {
+            background-color: #e8f4fd;
+            border: 1px solid #74b9ff;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .risk-high {
+            background-color: #ff7675;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .risk-medium {
+            background-color: #fdcb6e;
+            color: #333;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .risk-low {
+            background-color: #55efc4;
+            color: #333;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        ol, ul {
+            padding-left: 20px;
+        }
+        .signature-section {
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .signature-line {
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PLANO DE ATENDIMENTO A EMERGÊNCIAS (PAE) - SELENERGY</h1>
+
+        <table class="header-table">
+            <tr>
+                <td><strong>Código:</strong> PAE-001</td>
+                <td><strong>Revisão:</strong> 00</td>
+            </tr>
+            <tr>
+                <td><strong>Data de Emissão:</strong> 14/11/2025</td>
+                <td><strong>Validade:</strong> 1 ano</td>
+            </tr>
+            <tr>
+                <td><strong>Elaborado por:</strong> Geriel</td>
+                <td><strong>Aprovado por:</strong></td>
+            </tr>
+        </table>
+
+        <h2>1. INTRODUÇÃO</h2>
+
+        <h3>1.1 Objetivo</h3>
+        <p>Este Plano de Atendimento a Emergências (PAE) estabelece os procedimentos a serem adotados pela SelEnergy em caso de situações de emergência, visando proteger a vida dos colaboradores, o patrimônio da empresa e o meio ambiente, em conformidade com a ABNT NBR 15219 e as exigências do Corpo de Bombeiros.</p>
+
+        <h3>1.2 Escopo</h3>
+        <p>Este plano aplica-se a todos os colaboradores, terceiros e visitantes nas instalações da SelEnergy.</p>
+
+        <h3>1.3 Base Legal</h3>
+        <ul>
+            <li>Norma Regulamentadora NR-23 (Proteção Contra Incêndios)</li>
+            <li>ABNT NBR 15219 (Plano de Emergência Contra Incêndio)</li>
+            <li>Decretos Estaduais do Corpo de Bombeiros</li>
+        </ul>
+
+        <h2>2. IDENTIFICAÇÃO DA PLANTA</h2>
+        <ul>
+            <li><strong>Razão Social:</strong> SelEnergy Soluções em Energia Ltda.</li>
+            <li><strong>Endereço:</strong> Rua X, nº 123, São José dos Pinhais, PR</li>
+            <li><strong>Atividade:</strong> Montagem de baterias de Lítio Ferro Fosfato (LiFePO4)</li>
+            <li><strong>Grau de Risco:</strong> Médio</li>
+            <li><strong>População Fixa:</strong> (Número de funcionários por turno)</li>
+        </ul>
+
+        <h2>3. CENÁRIOS DE EMERGÊNCIA IDENTIFICADOS</h2>
+        <p>Com base no PGR-001, os seguintes cenários de emergência são considerados:</p>
+        
+        <table>
+            <tr>
+                <th>Cenário</th>
+                <th>Nível de Risco</th>
+                <th>Agente Causador</th>
+                <th>Consequências Potenciais</th>
+            </tr>
+            <tr>
+                <td><strong>1. Fuga Térmica (Thermal Runaway)</strong></td>
+                <td><span class="risk-high">ALTO</span></td>
+                <td>Curto-circuito interno/externo, sobrecarga, dano físico</td>
+                <td>Incêndio de difícil extinção (Classe D), explosão, liberação de gases tóxicos.</td>
+            </tr>
+            <tr>
+                <td><strong>2. Vazamento de Eletrólito</strong></td>
+                <td><span class="risk-medium">MÉDIO</span></td>
+                <td>Dano mecânico na célula</td>
+                <td>Contato com a pele (queimaduras químicas), irritação respiratória.</td>
+            </tr>
+            <tr>
+                <td><strong>3. Choque Elétrico</strong></td>
+                <td><span class="risk-medium">MÉDIO</span></td>
+                <td>Contato com pack energizado (>50V DC)</td>
+                <td>Parada cardiorrespiratória, queimaduras graves, fatalidade.</td>
+            </tr>
+            <tr>
+                <td><strong>4. Emergência Médica</strong></td>
+                <td><span class="risk-low">BAIXO</span></td>
+                <td>Mal súbito, ferimentos diversos</td>
+                <td>Agravamento do quadro clínico por demora no atendimento.</td>
+            </tr>
+        </table>
+
+        <h2>4. ESTRUTURA ORGANIZACIONAL DE RESPOSTA (BRIGADA DE INCÊNDIO)</h2>
+
+        <h3>4.1 Composição da Brigada</h3>
+        <ul>
+            <li><strong>Coordenador Geral da Brigada:</strong> Gerente de Operações</li>
+            <li><strong>Líder da Brigada (por turno):</strong> Chefe de Produção</li>
+            <li><strong>Brigadistas:</strong> (Mínimo 20% da população fixa por turno)</li>
+            <li><strong>Equipe de Apoio:</strong> Demais colaboradores (responsáveis pela evacuação e isolamento da área).</li>
+        </ul>
+
+        <h3>4.2 Responsabilidades</h3>
+        <ul>
+            <li><strong>Coordenador:</strong> Gerencia a emergência, aciona recursos externos, é o ponto de contato com o Corpo de Bombeiros.</li>
+            <li><strong>Líder:</strong> Comanda as ações no local da emergência, orienta os brigadistas.</li>
+            <li><strong>Brigadistas:</strong> Realizam o primeiro combate, prestam primeiros socorros e coordenam a evacuação.</li>
+        </ul>
+
+        <h2>5. PROCEDIMENTOS DE AÇÃO</h2>
+
+        <h3>5.1 Fluxo Geral de Atendimento à Emergência</h3>
+        <ol>
+            <li><strong>ALERTA:</strong> Qualquer pessoa que identificar uma emergência deve acionar o alarme de incêndio e gritar <strong>"FOGO!"</strong> ou <strong>"EMERGÊNCIA!"</strong>.</li>
+            <li><strong>ANÁLISE:</strong> O Líder da Brigada avalia a cena e define o plano de ação.</li>
+            <li><strong>APOIO EXTERNO:</strong> O Coordenador aciona o Corpo de Bombeiros (193) e o SAMU (192), se necessário.</li>
+            <li><strong>PRIMEIRO COMBATE / SOCORRO:</strong> A Brigada inicia as ações de controle da emergência.</li>
+            <li><strong>ABANDONO DE ÁREA:</strong> A Equipe de Apoio orienta todos para o <strong>Ponto de Encontro</strong> seguro.</li>
+            <li><strong>ISOLAMENTO:</strong> A área da emergência é isolada.</li>
+            <li><strong>RECEBIMENTO DO APOIO EXTERNO:</strong> Um brigadista se posiciona na entrada para orientar o Corpo de Bombeiros/SAMU.</li>
+        </ol>
+
+        <h3>5.2 Procedimento Específico: Fuga Térmica (Incêndio em Bateria)</h3>
+        <div class="warning-box">NÃO USE ÁGUA! A água reage com o lítio e agrava o incêndio.</div>
+        <div class="procedure-box">
+            <ol>
+                <li><strong>ACIONE O ALARME E EVACUE A ÁREA IMEDIATAMENTE.</strong></li>
+                <li><strong>Líder da Brigada:</strong> Avalia a extensão. Se for uma única bateria, prosseguir. Se for um incêndio generalizado, evacuar totalmente e aguardar o Corpo de Bombeiros.</li>
+                <li><strong>Brigadistas:</strong>
+                    <ul>
+                        <li><strong>Utilizar Extintor Classe D (Pó de Cloreto de Sódio):</strong> Aplicar o pó sobre a bateria para abafar o fogo.</li>
+                        <li><strong>OU utilizar Agente AVD (Dispersão Aquosa de Vermiculita):</strong> Borrifar o agente sobre a bateria para resfriar e encapsular.</li>
+                        <li><strong>NÃO utilizar extintores de Água (H2O) ou Espuma.</strong> O CO2 tem baixa eficácia.</li>
+                    </ul>
+                </li>
+                <li><strong>Resfriamento:</strong> Após o fogo ser extinto, continuar a aplicar o agente (se AVD) ou monitorar a temperatura à distância. A fuga térmica pode reiniciar.</li>
+                <li><strong>Isolamento:</strong> Isolar a bateria afetada em um recipiente com areia ou vermiculita por 48 horas.</li>
+            </ol>
+        </div>
+
+        <h3>5.3 Procedimento Específico: Vazamento de Eletrólito</h3>
+        <div class="procedure-box">
+            <ol>
+                <li>Isolar a área.</li>
+                <li>Utilizar EPI completo (luvas de nitrila, óculos, máscara para vapores orgânicos).</li>
+                <li>Conter o vazamento com material absorvente (vermiculita).</li>
+                <li>Recolher o material contaminado e descartar conforme <strong>PGRS-001</strong> (Resíduo Perigoso).</li>
+            </ol>
+        </div>
+
+        <h3>5.4 Procedimento Específico: Choque Elétrico</h3>
+        <div class="procedure-box">
+            <ol>
+                <li><strong>NÃO TOQUE NA VÍTIMA.</strong></li>
+                <li><strong>Desenergize a fonte:</strong> Desligue o disjuntor ou equipamento.</li>
+                <li>Se não for possível, use um material não condutor (madeira, plástico) para afastar a vítima da fonte.</li>
+                <li>Verifique os sinais vitais. Se a vítima não respira, inicie a Reanimação Cardiopulmonar (RCP) - <strong>se treinado para tal</strong>.</li>
+                <li>Acione o SAMU (192) imediatamente.</li>
+            </ol>
+        </div>
+
+        <h2>6. RECURSOS DE EMERGÊNCIA</h2>
+        
+        <table>
+            <tr>
+                <th>Recurso</th>
+                <th>Quantidade</th>
+                <th>Localização</th>
+            </tr>
+            <tr>
+                <td><strong>Extintores Classe D (10kg)</strong></td>
+                <td>4</td>
+                <td>Área de Montagem, Área de Testes</td>
+            </tr>
+            <tr>
+                <td><strong>Extintores ABC (6kg)</strong></td>
+                <td>10</td>
+                <td>Corredores, Almoxarifado, Escritórios</td>
+            </tr>
+            <tr>
+                <td><strong>Mantas Ignífugas</strong></td>
+                <td>2</td>
+                <td>Área de Montagem</td>
+            </tr>
+            <tr>
+                <td><strong>Kit de Primeiros Socorros</strong></td>
+                <td>3</td>
+                <td>Ambulatório, Produção, Escritório</td>
+            </tr>
+            <tr>
+                <td><strong>Kit para Vazamentos</strong></td>
+                <td>2</td>
+                <td>Almoxarifado, Produção</td>
+            </tr>
+            <tr>
+                <td><strong>Alarme de Incêndio</strong></td>
+                <td>-</td>
+                <td>Central na Portaria</td>
+            </tr>
+            <tr>
+                <td><strong>Luzes de Emergência</strong></td>
+                <td>-</td>
+                <td>Todas as rotas de fuga</td>
+            </tr>
+        </table>
+        <p><em>Nota: A localização exata deve ser indicada na Planta de Risco (Anexo A).</em></p>
+
+        <h2>7. COMUNICAÇÃO</h2>
+
+        <h3>7.1 Contatos de Emergência</h3>
+        
+        <table>
+            <tr>
+                <th>Serviço</th>
+                <th>Telefone</th>
+            </tr>
+            <tr>
+                <td><strong>Corpo de Bombeiros</strong></td>
+                <td><strong>193</strong></td>
+            </tr>
+            <tr>
+                <td><strong>SAMU (Ambulância)</strong></td>
+                <td><strong>192</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Polícia Militar</strong></td>
+                <td><strong>190</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Defesa Civil</strong></td>
+                <td><strong>199</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Companhia de Energia</strong></td>
+                <td>(Número local)</td>
+            </tr>
+            <tr>
+                <td><strong>Órgão Ambiental</strong></td>
+                <td>(Número local)</td>
+            </tr>
+        </table>
+
+        <h3>7.2 Fluxo de Comunicação</h3>
+        <ol>
+            <li><strong>Interno:</strong> Alarme sonoro + comunicação via rádio entre a Brigada.</li>
+            <li><strong>Externo:</strong> Coordenador da Brigada aciona os serviços necessários.</li>
+        </ol>
+
+        <h2>8. TREINAMENTO E SIMULADOS</h2>
+        <ul>
+            <li><strong>Treinamento da Brigada:</strong> Anual, com carga horária de 8 horas, incluindo prática de combate a incêndio Classe D.</li>
+            <li><strong>Simulado de Abandono:</strong> Semestral, envolvendo todos os colaboradores.</li>
+            <li><strong>Simulado de Combate a Incêndio:</strong> Anual, com a Brigada.</li>
+        </ul>
+
+        <h2>9. ANEXOS</h2>
+        <ul>
+            <li><strong>Anexo A:</strong> Planta de Risco com a localização de todos os recursos de emergência, rotas de fuga e ponto de encontro.</li>
+            <li><strong>Anexo B:</strong> Lista de Contatos da Brigada de Incêndio.</li>
+        </ul>
+
+        <div class="signature-section">
+            <h2>Assinaturas:</h2>
+            
+            <div>
+                <p><strong>Elaborado por:</strong></p>
+                <div class="signature-line"></div>
+                <p>(Nome/Cargo)</p>
+            </div>
+            
+            <div>
+                <p><strong>Aprovado por:</strong></p>
+                <div class="signature-line"></div>
+                <p>(Nome/Cargo)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
