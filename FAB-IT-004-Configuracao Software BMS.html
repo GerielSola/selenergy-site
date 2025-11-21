@@ -6,58 +6,80 @@
     <title>IT-004 - Configuração de Software do BMS (Daly)</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
             color: #333;
-            background-color: #f5f7fa;
+            background-color: #f9f9f9;
         }
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             background-color: #fff;
             padding: 30px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
         }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .header-logo {
+            max-width: 200px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+            /* Garante que a imagem mantenha suas proporções */
+            object-fit: contain;
+            /* Torna a imagem responsiva */
+            width: 100%;
+            height: auto;
+        }
+        .header-text {
+            flex: 1;
+            text-align: center;
+            min-width: 300px; /* Garante que o texto não fique muito comprimido */
+        }         
         h1 {
             text-align: center;
             color: #2c3e50;
-            border-bottom: 3px solid #9b59b6;
-            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
             margin-top: 0;
         }
         h2 {
-            color: #8e44ad;
-            border-bottom: 2px solid #bdc3c7;
-            padding-bottom: 8px;
-            margin-top: 30px;
-        }
-        h3 {
-            color: #9b59b6;
+            color: black;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
             margin-top: 25px;
         }
-        h4 {
-            color: #9b59b6;
+        h3 {
+            color: black;
             margin-top: 20px;
+            margin-bottom: 30;
+        }
+        h4 {
+            color: black;
+            margin-top: 20px;
+            margin-bottom: 30;
         }
         .header-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border: 1px solid #ddd;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .header-table td {
-            padding: 12px;
+            padding: 8px;
             border: 1px solid #ddd;
         }
         .header-table .label {
             font-weight: bold;
-            background-color: #ecf0f1;
+            background-color: #f5f5f5;
             width: 30%;
-            color: #2c3e50;
         }
         .parameters-table {
             width: 100%;
@@ -70,8 +92,8 @@
             text-align: left;
         }
         .parameters-table th {
-            background-color: #9b59b6;
-            color: white;
+          
+            color: black;
             font-weight: bold;
         }
         .parameters-table tr:nth-child(even) {
@@ -84,25 +106,23 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .changes-table th, .changes-table td {
-            padding: 12px;
+            padding: 8px;
             border: 1px solid #ddd;
             text-align: left;
         }
         .changes-table th {
-            background-color: #9b59b6;
-            color: white;
-            font-weight: bold;
+            background-color: #f2f2f2;
         }
         .step-box {
             background-color: #f5eef8;
-            border-left: 4px solid #9b59b6;
+            border-left: 4px solid #392fca;
             padding: 15px;
             margin: 15px 0;
             border-radius: 0 5px 5px 0;
         }
         .step-box h4 {
             margin-top: 0;
-            color: #8e44ad;
+            color: black;
         }
         .software-info {
             background-color: #e8f5e9;
@@ -137,12 +157,60 @@
             display: inline-block;
             margin: 3px 0;
         }
+         .signatures {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .signature-box {
+            text-align: center;
+            width: 40%;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            padding-top: 5px;
+        }        
+                /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-logo {
+                margin-bottom: 15px;
+            }
+            .header-text {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            .header-table td {
+                padding: 5px;
+                font-size: 0.9em;
+            }
+            .signature-box {
+                width: 100%;
+            }
+        }         
     </style>
 </head>
 <body>
     <div class="container">
+         <div class="header-container">
+        <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+        <div class="header-text">        
         <h1>INSTRUÇÃO DE TRABALHO</h1>
-        
+         </div>
+        </div>        
         <h2>Título: Configuração de Software do BMS (Daly)</h2>
         
         <table class="header-table">
@@ -325,11 +393,12 @@
 
         <div class="section">
             <h2>5. CONTROLE DE ALTERAÇÕES</h2>
-            <table class="changes-table">
+             <table class="changes-table">
                 <thead>
                     <tr>
                         <th>Revisão</th>
                         <th>Data</th>
+                        <th>Nome</th>
                         <th>Descrição da Alteração</th>
                     </tr>
                 </thead>
@@ -337,11 +406,33 @@
                     <tr>
                         <td>00</td>
                         <td>12/11/2025</td>
+                        <td>Geriel</td>
                         <td>Emissão inicial do documento.</td>
                     </tr>
                 </tbody>
+                 <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>               
             </table>
         </div>
+                <div class="signatures">
+                    <div class="signature-box">
+                        <p><strong>Elaborado por:</strong></p>
+                        <div class="signature-line"></div>
+                        <p>(Nome/Cargo)</p>
+                    </div>
+                    
+                    <div class="signature-box">
+                        <p><strong>Aprovado por:</strong></p>
+                        <div class="signature-line"></div>
+                        <p>(Nome/Cargo)</p>
+                    </div>
+                </div>        
     </div>
 </body>
 </html>

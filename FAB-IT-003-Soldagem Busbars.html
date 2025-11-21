@@ -6,58 +6,80 @@
     <title>IT-003 - Soldagem a Laser de Barramentos (Busbars)</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
             color: #333;
-            background-color: #f5f7fa;
+            background-color: #f9f9f9;
         }
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             background-color: #fff;
             padding: 30px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
         }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .header-logo {
+            max-width: 200px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+            /* Garante que a imagem mantenha suas proporções */
+            object-fit: contain;
+            /* Torna a imagem responsiva */
+            width: 100%;
+            height: auto;
+        }
+        .header-text {
+            flex: 1;
+            text-align: center;
+            min-width: 300px; /* Garante que o texto não fique muito comprimido */
+        }          
         h1 {
             text-align: center;
             color: #2c3e50;
-            border-bottom: 3px solid #e74c3c;
-            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
             margin-top: 0;
         }
         h2 {
-            color: #c0392b;
-            border-bottom: 2px solid #bdc3c7;
-            padding-bottom: 8px;
-            margin-top: 30px;
-        }
-        h3 {
-            color: #e74c3c;
+            color: black;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
             margin-top: 25px;
         }
-        h4 {
-            color: #e74c3c;
+        h3 {
+            color: black;
             margin-top: 20px;
+            margin-bottom: 30;
+        }
+        h4 {
+            color: black;
+            margin-top: 20px;
+            margin-bottom: 30;
         }
         .header-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border: 1px solid #ddd;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .header-table td {
-            padding: 12px;
+            padding: 8px;
             border: 1px solid #ddd;
         }
         .header-table .label {
             font-weight: bold;
-            background-color: #ecf0f1;
+            background-color: #f5f5f5;
             width: 30%;
-            color: #2c3e50;
         }
         .parameters-table {
             width: 100%;
@@ -80,18 +102,15 @@
         .changes-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 10px;
         }
         .changes-table th, .changes-table td {
-            padding: 12px;
+            padding: 8px;
             border: 1px solid #ddd;
             text-align: left;
         }
         .changes-table th {
-            background-color: #e74c3c;
-            color: white;
-            font-weight: bold;
+            background-color: #f2f2f2;
         }
         .critical-warning {
             color: #c0392b;
@@ -119,7 +138,7 @@
         }
         .step-box h4 {
             margin-top: 0;
-            color: #c0392b;
+            color: black;
         }
         .note-box {
             background-color: #fff8e1;
@@ -135,12 +154,60 @@
             margin: 15px 0;
             border-left: 4px solid #4caf50;
         }
+         .signatures {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .signature-box {
+            text-align: center;
+            width: 40%;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            padding-top: 5px;
+        }        
+                /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-logo {
+                margin-bottom: 15px;
+            }
+            .header-text {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            .header-table td {
+                padding: 5px;
+                font-size: 0.9em;
+            }
+            .signature-box {
+                width: 100%;
+            }
+        }        
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="header-container">
+        <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+        <div class="header-text">         
         <h1>INSTRUÇÃO DE TRABALHO</h1>
-        
+        </div>
+        </div>       
         <h2>Título: Soldagem a Laser de Barramentos (Busbars)</h2>
 
         <div class="section">
@@ -169,4 +236,131 @@
             <ul>
                 <li class="warning"><strong>OBRIGATÓRIO</strong> o uso de óculos de proteção específicos para o comprimento de onda do laser (1070 nm).</li>
                 <li>A área de soldagem deve ser enclausurada e possuir um sistema de exaustão de fumos metálicos.</li>
-               
+                <li>O operador deve ser treinado e certificado para operar o equipamento a laser.</li>
+                <li class="critical-warning"><strong>NUNCA</strong> olhe diretamente para o feixe de laser, mesmo com óculos de proteção.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. PARÂMETROS DE SOLDAGEM</h2>
+            <div class="note-box">
+                <strong>Nota:</strong> Estes parâmetros são um ponto de partida e devem ser ajustados finamente pelo Engenheiro de Processos para cada lote de material.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. PROCEDIMENTO PASSO A PASSO</h2>
+            
+            <div class="step-box">
+                <h4>1. Preparação:</h4>
+                <ul>
+                    <li>Limpar a superfície dos terminais das células e dos barramentos com álcool isopropílico para remover qualquer contaminação.</li>
+                    <li>Posicionar as células e os barramentos no gabarito de fixação, garantindo um contato perfeito (sem gaps) entre as peças.</li>
+                </ul>
+            </div>
+            
+            <div class="step-box">
+                <h4>2. Configuração da Máquina:</h4>
+                <ul>
+                    <li>Ligar a máquina de solda a laser e o sistema de exaustão.</li>
+                    <li>Abrir a válvula do cilindro de gás de proteção (Argônio).</li>
+                    <li>No software da máquina, carregar o programa de soldagem correspondente ao modelo da bateria.</li>
+                    <li>Verificar se os parâmetros de soldagem correspondem aos especificados na tabela acima.</li>
+                </ul>
+            </div>
+            
+            <div class="step-box">
+                <h4>3. Execução da Solda:</h4>
+                <ul>
+                    <li>Fechar a porta da cabine de soldagem.</li>
+                    <li>Iniciar o ciclo automático. A máquina irá posicionar o cabeçote de solda e executar o cordão de solda sobre a interface entre o barramento e o terminal.</li>
+                    <li>O processo deve ser contínuo e uniforme.</li>
+                </ul>
+            </div>
+            
+            <div class="step-box">
+                <h4>4. Resfriamento e Inspeção:</h4>
+                <ul>
+                    <li>Após o término do ciclo, aguardar 30 segundos para o resfriamento da peça antes de abrir a cabine.</li>
+                    <li>Remover o pack soldado do gabarito com cuidado.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>6. INSPEÇÃO DE QUALIDADE DA SOLDA</h2>
+            
+            <div class="quality-criteria">
+                <h4>Inspeção Visual (100% das soldas):</h4>
+                <ul>
+                    <li>O cordão de solda deve ser brilhante, uniforme e sem interrupções.</li>
+                    <li class="warning"><strong>Rejeitar</strong> se houver presença de poros, trincas, respingos excessivos ou crateras.</li>
+                    <li>A zona termicamente afetada (ZTA) deve ser mínima e uniforme.</li>
+                </ul>
+            </div>
+            
+            <div class="quality-criteria">
+                <h4>Teste de Arrancamento (Amostragem):</h4>
+                <ul>
+                    <li>A cada 50 packs, uma junta soldada deve ser submetida a um teste destrutivo de arrancamento (pull test).</li>
+                    <li><strong>Critério de Aceitação:</strong> A força de ruptura deve ser superior a 200 kgf e a fratura deve ocorrer no material base (cobre ou alumínio), não na junta soldada.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>7. SOLUÇÃO DE PROBLEMAS</h2>
+            <ul>
+                <li><strong>Solda porosa ou escura:</strong> Verifique a vazão e a pureza do gás de proteção. Pode haver contaminação na superfície das peças.</li>
+                <li><strong>Falta de penetração:</strong> Aumente a potência do laser em incrementos de 5% ou diminua a velocidade de solda.</li>
+                <li><strong>Excesso de penetração (furo):</strong> Diminua a potência do laser ou aumente a velocidade de solda.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>8. CONTROLE DE ALTERAÇÕES</h2>
+                    <table class="changes-table">
+                <thead>
+                    <tr>
+                        <th>Revisão</th>
+                        <th>Data</th>
+                        <th>Nome</th>
+                        <th>Descrição da Alteração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00</td>
+                        <td>12/11/2025</td>
+                        <td>Geriel</td>
+                        <td>Emissão inicial do documento.</td>
+                    </tr>
+                </tbody>
+                 <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>               
+            </table>
+        </div>
+                <div class="signatures">
+                    <div class="signature-box">
+                        <p><strong>Elaborado por:</strong></p>
+                        <div class="signature-line"></div>
+                        <p>(Nome/Cargo)</p>
+                    </div>
+                    
+                    <div class="signature-box">
+                        <p><strong>Aprovado por:</strong></p>
+                        <div class="signature-line"></div>
+                        <p>(Nome/Cargo)</p>
+                    </div>
+                </div>
+    </div>   
+        </div>
+    </div>
+</body>
+</html>
