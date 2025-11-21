@@ -21,13 +21,27 @@
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
             border-radius: 5px;
         }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
         .header-logo {
-            position: absolute;
-            left: 360px;
-            top: 30px;
             max-width: 200px;
             height: auto;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+            /* Garante que a imagem mantenha suas proporções */
+            object-fit: contain;
+            /* Torna a imagem responsiva */
+            width: 100%;
+            height: auto;
+        }
+        .header-text {
+            flex: 1;
+            text-align: center;
+            min-width: 300px; /* Garante que o texto não fique muito comprimido */
         }
         h1 {
             text-align: center;
@@ -37,14 +51,15 @@
             margin-top: 0;
         }
         h2 {
-            color: #2980b9;
+            color: black;
             border-bottom: 1px solid #bdc3c7;
             padding-bottom: 5px;
             margin-top: 25px;
         }
         h3 {
-            color: #3498db;
+            color: black;
             margin-top: 20px;
+            margin-bottom: 30;
         }
         .header-table {
             width: 100%;
@@ -105,13 +120,42 @@
             font-style: italic;
             color: #7f8c8d;
         }
+                /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-logo {
+                margin-bottom: 15px;
+            }
+            .header-text {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            .header-table td {
+                padding: 5px;
+                font-size: 0.9em;
+            }
+            .signature-box {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="header-container">
         <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+        <div class="header-text">
         <h1>PROCEDIMENTO OPERACIONAL PADRÃO</h1>
-        
+        </div>
+        </div>
         <h2>Título: Recebimento e Inspeção de Matéria-Prima (Células LiFePO4)</h2>
         
         <table class="header-table">
@@ -147,40 +191,48 @@
 
         <div class="section">
             <h2>3. RECURSOS NECESSÁRIOS</h2>
+            <ol>
+                <h3>3.1. Equipamentos de Medição:</h3>
             
-            <h3>3.1. Equipamentos de Medição:</h3>
-            <ul>
-                <li>Multímetro digital com precisão de 3 casas decimais</li>
-                <li>Medidor de resistência interna (impedancímetro) - Ex: YR1035+</li>
-                <li>Paquímetro digital</li>
-                <li>Balança de precisão</li>
-            </ul>
+                     <ul>
+                        <ol>
+                            <li>Multímetro digital com precisão de 3 casas decimais</li>
+                            <li>Medidor de resistência interna (impedancímetro) - Ex: YR1035+</li>
+                            <li>Paquímetro digital</li>
+                            <li>Balança de precisão</li>
+                        </ol>
+                    </ul>
             
-            <h3>3.2. Equipamentos de Proteção Individual (EPIs):</h3>
-            <ul>
-                <li>Luvas de segurança (antiestáticas e isolantes)</li>
-                <li>Óculos de proteção</li>
-            </ul>
+                <h3>3.2. Equipamentos de Proteção Individual (EPIs):</h3>
+                <ul>
+                    <ol>
+                        <li>Luvas de segurança (antiestáticas e isolantes)</li>
+                        <li>Óculos de proteção</li>
+                    </ol>
+                </ul>
             
             <h3>3.3. Documentação:</h3>
-            <ul>
-                <li>Ordem de Compra (OC)</li>
-                <li>Nota Fiscal (NF)</li>
-                <li>Ficha Técnica do Produto (Datasheet do Fornecedor)</li>
-                <li>Formulário de Inspeção de Recebimento (FOR-QLD-001)</li>
-            </ul>
+                <ul>
+                    <ol>
+                        <li>Ordem de Compra (OC)</li>
+                        <li>Nota Fiscal (NF)</li>
+                        <li>Ficha Técnica do Produto (Datasheet do Fornecedor)</li>
+                        <li>Formulário de Inspeção de Recebimento (FOR-QLD-001)</li>
+                    </ol>
+                </ul>
+            </ol>
         </div>
 
         <div class="section">
             <h2>4. PROCEDIMENTO</h2>
-            
-            <h3>4.1. Recebimento e Conferência Documental (Encarregado de Almoxarifado)</h3>
             <ol>
-                <li><strong>Receber a carga:</strong> Recepcionar o transportador e direcionar a carga para a área de quarentena.</li>
-                <li><strong>Conferir a documentação:</strong> Verificar se a Nota Fiscal corresponde à Ordem de Compra (fornecedor, quantidade, descrição do produto).</li>
-                <li><strong>Inspeção preliminar da embalagem:</strong> Inspecionar visualmente as caixas em busca de avarias (amassados, furos, umidade). Registrar qualquer dano na NF e no formulário de recebimento.</li>
-                <li><strong>Registrar no sistema:</strong> Lançar a entrada da NF no sistema ERP, gerando um número de lote interno para rastreabilidade. O material deve ser alocado no estoque com status "QUARENTENA".</li>
-            </ol>
+                <h3>4.1. Recebimento e Conferência Documental (Encarregado de Almoxarifado)</h3>
+                    <ol>
+                        <li><strong>Receber a carga:</strong> Recepcionar o transportador e direcionar a carga para a área de quarentena.</li>
+                        <li><strong>Conferir a documentação:</strong> Verificar se a Nota Fiscal corresponde à Ordem de Compra (fornecedor, quantidade, descrição do produto).</li>
+                        <li><strong>Inspeção preliminar da embalagem:</strong> Inspecionar visualmente as caixas em busca de avarias (amassados, furos, umidade). Registrar qualquer dano na NF e no formulário de recebimento.</li>
+                        <li><strong>Registrar no sistema:</strong> Lançar a entrada da NF no sistema ERP, gerando um número de lote interno para rastreabilidade. O material deve ser alocado no estoque com status "QUARENTENA".</li>
+                    </ol>
             
             <h3>4.2. Inspeção Visual e Dimensional (Técnico de Qualidade)</h3>
             <ol>
@@ -212,25 +264,28 @@
                 </li>
                 <li><strong>Registrar:</strong> Anotar os valores de Tensão (OCV) e Resistência Interna (RI) de cada célula no formulário.</li>
             </ol>
+            </ol>
         </div>
 
         <div class="section">
             <h2>5. CRITÉRIOS DE ACEITAÇÃO E REJEIÇÃO</h2>
-            
-            <h3>5.1. Aceitação do Lote:</h3>
-            <p>O lote será <strong>APROVADO</strong> se TODAS as condições abaixo forem atendidas:</p>
-            <ul>
-                <li>Documentação conforme.</li>
-                <li>Embalagens íntegras.</li>
-                <li>Nenhuma não conformidade crítica (vazamento, inchaço) na inspeção visual da amostra.</li>
-                <li>Dimensões e peso dentro da tolerância especificada na Ficha Técnica (±0.5mm / ±10g).</li>
-                <li>Tensão (OCV) de todas as células da amostra entre <strong>3.250V e 3.290V</strong>.</li>
-                <li>Resistência Interna (RI) de todas as células da amostra abaixo de <strong>0.35mΩ</strong>.</li>
-                <li>Variação máxima de 5mV na tensão e 0.05mΩ na resistência entre as células da amostra.</li>
-            </ul>
-            
+            <ol>
+                <h3>5.1. Aceitação do Lote:</h3>
+                <p>O lote será <strong>APROVADO</strong> se TODAS as condições abaixo forem atendidas:</p>
+                <ol>
+                    <ul>
+                        <li>Documentação conforme.</li>
+                        <li>Embalagens íntegras.</li>
+                        <li>Nenhuma não conformidade crítica (vazamento, inchaço) na inspeção visual da amostra.</li>
+                        <li>Dimensões e peso dentro da tolerância especificada na Ficha Técnica (±0.5mm / ±10g).</li>
+                        <li>Tensão (OCV) de todas as células da amostra entre <strong>3.250V e 3.290V</strong>.</li>
+                        <li>Resistência Interna (RI) de todas as células da amostra abaixo de <strong>0.35mΩ</strong>.</li>
+                        <li>Variação máxima de 5mV na tensão e 0.05mΩ na resistência entre as células da amostra.</li>
+                    </ul>
+                </ol>
             <h3>5.2. Rejeição do Lote:</h3>
             <p>O lote será <strong>REJEITADO</strong> se QUALQUER uma das condições abaixo ocorrer:</p>
+            <ol>
             <ul>
                 <li>Divergência entre NF e Ordem de Compra.</li>
                 <li>Avarias graves na embalagem que comprometam o produto.</li>
@@ -238,31 +293,39 @@
                 <li>Medidas dimensionais ou de peso fora da tolerância.</li>
                 <li>Tensão (OCV) ou Resistência Interna (RI) fora dos limites especificados.</li>
             </ul>
+            </ol>
+            </ol>
         </div>
 
         <div class="section">
             <h2>6. FLUXO DE APROVAÇÃO E REPROVAÇÃO</h2>
+            <ol>
             <ul>
                 <li><strong>Lote Aprovado:</strong> O Técnico de Qualidade assina o FOR-QLD-001 como "Aprovado" e comunica o Encarregado de Almoxarifado. O material tem seu status alterado para "LIBERADO" no sistema ERP e é movido para o estoque de matéria-prima.</li>
                 <li><strong>Lote Reprovado:</strong> O Técnico de Qualidade assina o FOR-QLD-001 como "Reprovado", anexa fotos e abre um Relatório de Não Conformidade (RNC), conforme <strong>POP-010</strong>. O material permanece em "QUARENTENA" até a definição do setor de Compras (devolução ao fornecedor).</li>
             </ul>
+            </ol>
         </div>
 
         <div class="section">
             <h2>7. REGISTROS</h2>
+            <ol>
             <ul>
                 <li>Formulário de Inspeção de Recebimento (FOR-QLD-001)</li>
                 <li>Relatório de Não Conformidade (RNC), se aplicável.</li>
             </ul>
+            </ol>
         </div>
 
         <div class="section">
             <h2>8. SEGURANÇA</h2>
+            <ol>
             <ul>
                 <li>É obrigatório o uso de óculos de proteção e luvas durante todo o manuseio das células.</li>
                 <li>Nunca provoque curto-circuito nos terminais das células.</li>
                 <li>Em caso de contato com eletrólito, lave a área com água abundante e procure o responsável pela segurança.</li>
             </ul>
+            </ol>
         </div>
 
         <div class="section">
@@ -272,6 +335,7 @@
                     <tr>
                         <th>Revisão</th>
                         <th>Data</th>
+                        <th>Nome</th>
                         <th>Descrição da Alteração</th>
                     </tr>
                 </thead>
@@ -279,12 +343,14 @@
                     <tr>
                         <td>00</td>
                         <td>12/10/2025</td>
+                        <td>Geriel</td>
                         <td>Emissão inicial do documento.</td>
                     </tr>
                 </tbody>
                 <tbody>
                     <tr>
                         <td>01</td>
+                        <td>-</td>
                         <td>-</td>
                         <td>-</td>
                     </tr>
