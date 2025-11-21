@@ -21,14 +21,28 @@
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
             border-radius: 5px;
         }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }        
         .header-logo {
-            position: absolute;
-            left: 360px;
-            top: 30px;
             max-width: 200px;
             height: auto;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-        }       
+            /* Garante que a imagem mantenha suas proporções */
+            object-fit: contain;
+            /* Torna a imagem responsiva */
+            width: 100%;
+            height: auto;
+        }   
+        .header-text {
+            flex: 1;
+            text-align: center;
+            min-width: 300px; /* Garante que o texto não fique muito comprimido */
+        }    
         h1 {
             text-align: center;
             color: #2c3e50;
@@ -37,14 +51,15 @@
             margin-top: 0;
         }
         h2 {
-            color: #2980b9;
+            color: black;
             border-bottom: 1px solid #bdc3c7;
             padding-bottom: 5px;
             margin-top: 25px;
         }
         h3 {
-            color: #3498db;
+            color: black;
             margin-top: 20px;
+            margin-bottom: 30;
         }
         .header-table {
             width: 100%;
@@ -120,13 +135,42 @@
             margin-top: 0;
             color: #2c3e50;
         }
+                /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-logo {
+                margin-bottom: 15px;
+            }
+            .header-text {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            .header-table td {
+                padding: 5px;
+                font-size: 0.9em;
+            }
+            .signature-box {
+                width: 100%;
+            }
+        }        
     </style>
 </head>
 <body>
     <div class="container">
-         <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+        <div class="header-container">
+        <img src="Logo SelEnergy.png" alt="SelEnergy Logo" class="header-logo">
+        <div class="header-text">
         <h1>PROCEDIMENTO OPERACIONAL PADRÃO</h1>
-        
+        </div>
+        </div>
         <h2>Título: Teste de Células Individuais</h2>
         
         <table class="header-table">
@@ -162,30 +206,35 @@
 
         <div class="section">
             <h2>3. RECURSOS NECESSÁRIOS</h2>
-            
+            <ol>
             <h3>3.1. Equipamentos de Teste:</h3>
+            <ol>
             <ul>
                 <li>Testador/Analisador de Baterias com capacidade de carga e descarga (Ex: Neware, Itech)</li>
                 <li>Fonte de alimentação DC ajustável (para carga inicial)</li>
                 <li>Sistema de monitoramento de temperatura (termopares)</li>
             </ul>
-            
+            </ol>
             <h3>3.2. Equipamentos de Proteção Individual (EPIs):</h3>
+            <ol>
             <ul>
                 <li>Luvas de segurança (antiestáticas e isolantes)</li>
                 <li>Óculos de proteção</li>
             </ul>
-            
+            </ol>
             <h3>3.3. Documentação:</h3>
+            <ol>
             <ul>
                 <li>Ficha Técnica do Produto (Datasheet do Fornecedor)</li>
                 <li>Formulário de Teste de Células (FOR-QLD-002)</li>
             </ul>
+            </ol>
+            </ol>
         </div>
 
         <div class="section">
             <h2>4. PROCEDIMENTO</h2>
-            
+            <ol>
             <h3>4.1. Preparação da Célula</h3>
             <ol>
                 <li><strong>Identificação:</strong> Registrar o QR Code/número de série de cada célula no Formulário de Teste (FOR-QLD-002).</li>
@@ -225,6 +274,7 @@
                         <li>Tempo total do ciclo.</li>
                     </ul>
                 </li>
+            </ol>
             </ol>
         </div>
 
@@ -290,6 +340,7 @@
                     <tr>
                         <th>Revisão</th>
                         <th>Data</th>
+                        <th>Nome</th>
                         <th>Descrição da Alteração</th>
                     </tr>
                 </thead>
@@ -297,6 +348,7 @@
                     <tr>
                         <td>00</td>
                         <td>12/10/2025</td>
+                        <td>Geriel</td>
                         <td>Emissão inicial do documento.</td>
                     </tr>
                 </tbody>
